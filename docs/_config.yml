@@ -1,9 +1,9 @@
-repository: leemengtaiwan/nbdev_template
+repository: leemengtaiwan/pytorch_lightning_applications
 output: web
-topnav_title: nbdev_template
-site_title: nbdev_template
+topnav_title: pytorch_lightning_applications
+site_title: pytorch_lightning_applications
 company_name: LeeMeng
-description: A description of your project
+description: 以 PyTorch 與 PyTorch Lightning 實作，包含能夠重複使用並作為教學用途的機器學習與深度學習應用。
 # Set to false to disable KaTeX math
 use_math: true
 # Add Google analytics id if you have one and want to use it here
@@ -61,4 +61,4 @@ sidebars:
 permalink: pretty
 
 theme: jekyll-theme-cayman
-baseurl: /nbdev_template
+baseurl: /pytorch_lightning_applications/

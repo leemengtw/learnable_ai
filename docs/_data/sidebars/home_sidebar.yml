@@ -22,6 +22,6 @@ entries:
       title: utils
       url: /utils
     output: web
-    title: nbdev_template
+    title: pytorch_lightning_applications
   output: web
   title: Sidebar

@@ -1,5 +1,5 @@
 {
-  "nbdev_template": {
+  "pytorch_lightning_applications": {
     "Overview": "/",
     "core": "/core",
     "experimental": "/experimental",

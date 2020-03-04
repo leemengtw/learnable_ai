@@ -1,10 +1,10 @@
 SRC = $(wildcard nbs/*.ipynb)
 
-all: sn_nbdev_template docs
+all: pytorch_lightning_applications docs
 
-sn_nbdev_template: $(SRC)
+pytorch_lightning_applications: $(SRC)
 	nbdev_build_lib
-	touch sn_nbdev_template
+	touch pytorch_lightning_applications
 
 docs_serve: docs
 	cd docs && bundle exec jekyll serve

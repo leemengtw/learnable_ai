@@ -10,8 +10,8 @@ modules = ["core.py",
            "template.py",
            "utils.py"]
 
-doc_url = "https://leemengtaiwan.github.io/nbdev_template/"
+doc_url = "https://leemengtaiwan.github.io/pytorch_lightning_applications/"
 
-git_url = "https://github.com/leemengtaiwan/nbdev_template/tree/master/"
+git_url = "https://github.com/leemengtaiwan/pytorch_lightning_applications/tree/master/"
 
 def custom_doc_links(name): return None
