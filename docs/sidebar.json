@@ -1,0 +1,9 @@
+{
+  "nbdev_template": {
+    "Overview": "/",
+    "core": "/core",
+    "experimental": "/experimental",
+    "template": "/template",
+    "utils": "/utils"
+  }
+}

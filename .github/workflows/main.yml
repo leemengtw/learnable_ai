@@ -1,0 +1,54 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-latest']
+        python-version: ['3.6']
+    steps:
+      - name: Setup miniconda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+      - name: Conda info
+        shell: bash -l {0}
+        run: conda info
+      - name: Conda list
+        shell: pwsh
+        run: conda list
+      - uses: actions/checkout@v1
+      - name: Install required libraries for the project
+        shell: bash -l {0}
+        run: |
+          echo "Using following Python environment:"
+          which pip
+          which python
+          pip install -r requirements.txt
+          pip install nbdev jupyter packaging
+          pip install -e .
+      - name: Read all notebooks
+        shell: bash -l {0}
+        run: |
+          nbdev_read_nbs
+      - name: Check if all notebooks are cleaned
+        shell: bash -l {0}
+        run: |
+          echo "Check we are starting with clean git checkout"
+          if [ -n "$(git status -uno -s)" ]; then echo "git status is not clean"; false; fi
+          echo "Trying to strip out notebooks"
+          nbdev_clean_nbs
+          echo "Check that strip out was unnecessary"
+          git status -s # display the status to see which nbs need cleaning up
+          if [ -n "$(git status -uno -s)" ]; then echo -e "!!! Detected unstripped out notebooks\n!!!Remember to run nbdev_install_git_hooks"; false; fi
+      - name: Check if there is no diff library/notebooks
+        shell: bash -l {0}
+        run: |
+          if [ -n "$(nbdev_diff_nbs)" ]; then echo -e "!!! Detected difference between the notebooks and the library"; false; fi
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          nbdev_test_nbs
