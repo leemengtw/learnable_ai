@@ -1,11 +1,11 @@
 ---
 
-title: PyTorch Lightning Applications
+title: Practical AI
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "以 PyTorch Lightning 實作的機器學習與深度學習應用。"
+summary: "以 PyTorch、TensorFlow、scikit-learn 以及 pandas 等函式庫實作的實務機器學習、深度學習應用。"
 ---
 <!--
 
@@ -38,7 +38,7 @@ summary: "以 PyTorch Lightning 實作的機器學習與深度學習應用。"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">REPO</span><span class="o">=</span>pytorch_lightning_applications
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">REPO</span><span class="o">=</span>practical_ai
 git clone https://github.com/leemengtaiwan/<span class="nv">$REPO</span>.git
 <span class="nb">cd</span> <span class="nv">$REPO</span>
 </pre></div>
@@ -58,6 +58,7 @@ git clone https://github.com/leemengtaiwan/<span class="nv">$REPO</span>.git
 <div class="highlight"><pre><span></span>conda create -n <span class="nv">$REPO</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 -y
 conda activate <span class="nv">$REPO</span>
 pip install -r requirements.txt
+conda install -c conda-forge jupyterlab -y
 </pre></div>
 
 </div>

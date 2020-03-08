@@ -1,10 +1,10 @@
 SRC = $(wildcard nbs/*.ipynb)
 
-all: pytorch_lightning_applications docs
+all: practical_ai docs
 
-pytorch_lightning_applications: $(SRC)
+practical_ai: $(SRC)
 	nbdev_build_lib
-	touch pytorch_lightning_applications
+	touch practical_ai
 
 docs_serve: docs
 	cd docs && bundle exec jekyll serve

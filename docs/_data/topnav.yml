@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/leemengtaiwan/pytorch_lightning_applications
+      external_url: https://github.com/leemengtaiwan/practical_ai
 
 #Topnav dropdowns
 topnav_dropdowns:
