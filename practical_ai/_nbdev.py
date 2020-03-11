@@ -14,4 +14,5 @@ doc_url = "https://leemengtaiwan.github.io/practical_ai/"
 
 git_url = "https://github.com/leemengtaiwan/practical_ai/tree/master/"
 
+
 def custom_doc_links(name): return None
