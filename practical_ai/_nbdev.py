@@ -3,7 +3,8 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"logger": "utils.ipynb",
-         "hello_world": "template.ipynb"}
+         "hello_world": "template.ipynb",
+         "download_gdrive": "utils.ipynb"}
 
 modules = ["core.py",
            "experimental.py",
