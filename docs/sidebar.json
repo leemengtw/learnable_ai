@@ -2,7 +2,10 @@
   "practical_ai": {
     "Overview": "/",
     "core": "/core",
+    "data": "/data",
     "experimental": "/experimental",
+    "gan": "/gan",
+    "layers": "/layers",
     "template": "/template",
     "utils": "/utils"
   }

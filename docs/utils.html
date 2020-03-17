@@ -5,7 +5,7 @@ title: utils
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "description"
+summary: "常用的 utilities。"
 ---
 <!--
 
@@ -24,6 +24,134 @@ summary: "description"
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#19979;&#36617;&#20006;&#35299;&#22739;-Google-Drive-&#19978;&#30340;&#22739;&#32302;&#27284;">&#19979;&#36617;&#20006;&#35299;&#22739; Google Drive &#19978;&#30340;&#22739;&#32302;&#27284;<a class="anchor-link" href="#&#19979;&#36617;&#20006;&#35299;&#22739;-Google-Drive-&#19978;&#30340;&#22739;&#32302;&#27284;">&#182;</a></h2><ul>
+<li><a href="https://github.com/wkentaro/gdown">wkentaro/gdown</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="download_gdrive" class="doc_header"><code>download_gdrive</code><a href="https://github.com/leemengtaiwan/practical_ai/tree/master/practical_ai/utils.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_gdrive</code>(<strong><code>url</code></strong>=<em><code>None</code></em>, <strong><code>file_id</code></strong>=<em><code>None</code></em>, <strong><code>file_name</code></strong>=<em><code>None</code></em>, <strong><code>data_folder</code></strong>=<em><code>None</code></em>, <strong><code>extract_all</code></strong>=<em><code>False</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://drive.google.com/uc?id=1IGrTr308mGAaCKotpkkm8wTKlWs9Jq-p&quot;</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;crypko_data.zip&quot;</span>
+<span class="n">data_folder</span> <span class="o">=</span> <span class="s2">&quot;crypko&quot;</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">download_gdrive</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> 
+                            <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span> 
+                            <span class="n">data_folder</span><span class="o">=</span><span class="n">data_folder</span><span class="p">)</span>
+<span class="n">file_path</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>INFO:root:Start to download files on Google Drive...
+Downloading...
+From: https://drive.google.com/uc?id=1IGrTr308mGAaCKotpkkm8wTKlWs9Jq-p
+To: /home/ec2-user/SageMaker/workspace/practical_ai/notebooks/extra_data_2.zip
+452MB [00:06, 64.8MB/s] 
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;data/crypko/crypko_data.zip&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">file_path</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">download_gdrive</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> 
+                                   <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span> 
+                                   <span class="n">data_folder</span><span class="o">=</span><span class="n">data_folder</span><span class="p">,</span>
+                                   <span class="n">extract_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">71315</span>
+<span class="n">files</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>INFO:root:Extracting zip file...
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;data/crypko/faces/&#39;,
+ &#39;data/crypko/faces/30553.jpg&#39;,
+ &#39;data/crypko/faces/15683.jpg&#39;,
+ &#39;data/crypko/faces/14421.jpg&#39;,
+ &#39;data/crypko/faces/47597.jpg&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}

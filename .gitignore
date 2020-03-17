@@ -1,9 +1,12 @@
-# Custom
+# data root
 data
 
 # tensorboard
 runs
 lightning_logs
+
+# unfinished notebooks
+_*.ipynb
 
 *.bak
 .gitattributes

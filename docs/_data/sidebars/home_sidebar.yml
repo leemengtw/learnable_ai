@@ -13,8 +13,17 @@ entries:
       title: core
       url: /core
     - output: web,pdf
+      title: data
+      url: /data
+    - output: web,pdf
       title: experimental
       url: /experimental
+    - output: web,pdf
+      title: gan
+      url: /gan
+    - output: web,pdf
+      title: layers
+      url: /layers
     - output: web,pdf
       title: template
       url: /template

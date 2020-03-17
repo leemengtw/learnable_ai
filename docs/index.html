@@ -25,7 +25,7 @@ summary: "以 PyTorch、TensorFlow、scikit-learn 以及 pandas 等函式庫實�
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26412;&#22320;&#38283;&#30332;">&#26412;&#22320;&#38283;&#30332;<a class="anchor-link" href="#&#26412;&#22320;&#38283;&#30332;">&#182;</a></h2>
+<h2 id="&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;">&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;<a class="anchor-link" href="#&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -48,7 +48,7 @@ git clone https://github.com/leemengtaiwan/<span class="nv">$REPO</span>.git
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>建立新的 <a href="https://www.anaconda.com/">Anaconda</a> 環境並安裝函式庫：</p>
+<p>建立新的 <a href="https://www.anaconda.com/">Anaconda</a> 環境並在該環境內安裝函式庫：</p>
 
 </div>
 </div>
@@ -56,9 +56,13 @@ git clone https://github.com/leemengtaiwan/<span class="nv">$REPO</span>.git
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>conda create -n <span class="nv">$REPO</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 -y
-conda activate <span class="nv">$REPO</span>
+conda activate <span class="nv">$REPO</span>  <span class="c1"># 或 source activate $REPO</span>
 pip install -r requirements.txt
-conda install -c conda-forge jupyterlab -y
+
+conda install pytorch torchvision <span class="nv">cudatoolkit</span><span class="o">=</span><span class="m">10</span>.1 -c pytorch
+conda install -c conda-forge opencv
+pip install easydict
+pip install more-itertools
 </pre></div>
 
 </div>
@@ -66,7 +70,39 @@ conda install -c conda-forge jupyterlab -y
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>設置 <a href="https://github.com/fastai/nbdev">nbdev</a> 環境並以可修改的方式安裝此 package：</p>
+<p>安裝 Jupyter Lab：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>conda install -c conda-forge jupyterlab -y
+pip install ipywidgets
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>安裝 <a href="https://github.com/rapidsai/jupyterlab-nvdashboard">JupyterLab GPU Dashboards</a>：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>pip install jupyterlab-nvdashboard
+jupyter labextension install jupyterlab-nvdashboard
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>設置 <a href="https://github.com/fastai/nbdev">nbdev</a> 環境並以 editable 的方式安裝此 package：</p>
 
 </div>
 </div>
@@ -75,8 +111,22 @@ conda install -c conda-forge jupyterlab -y
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>nbdev_install_git_hooks
 nbdev_build_lib
-pip install -e .
-nbdev_build_docs
+pip install -e <span class="s2">&quot;.[dev]&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>更新文件：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>nbdev_build_docs
 </pre></div>
 
 </div>
