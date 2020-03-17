@@ -3,11 +3,28 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"logger": "utils.ipynb",
+         "get_data_root": "data.ipynb",
+         "get_dataset": "data.ipynb",
+         "get_data_loader": "data.ipynb",
+         "DIM_CHANNEL_MULTIPLIER": "gan.ipynb",
+         "KERNEL_SIZE": "gan.ipynb",
+         "get_n_samplings": "gan.ipynb",
+         "get_norm2d": "gan.ipynb",
+         "get_activation": "gan.ipynb",
+         "UpsampleConv2d": "gan.ipynb",
+         "UnsqueezeLatent": "gan.ipynb",
+         "SqueezeLogit": "gan.ipynb",
+         "DownsampleConv2d": "gan.ipynb",
+         "ConvGenerator": "gan.ipynb",
+         "Identity": "layers.ipynb",
          "hello_world": "template.ipynb",
          "download_gdrive": "utils.ipynb"}
 
 modules = ["core.py",
+           "data.py",
            "experimental.py",
+           "gan.py",
+           "layers.py",
            "template.py",
            "utils.py"]
 

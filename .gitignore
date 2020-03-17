@@ -1,6 +1,10 @@
 # Custom
 data
 
+# tensorboard
+runs
+lightning_logs
+
 *.bak
 .gitattributes
 .last_checked
