@@ -38,6 +38,13 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     install_requires=requirements,
+    # reference: https://stackoverflow.com/q/53541162/2447655
+    extras_require={
+        'dotenv': ['python-dotenv'],
+        'dev': [
+            'nbdev'
+        ]
+    },
     python_requires='>=' + cfg['min_python'],
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
