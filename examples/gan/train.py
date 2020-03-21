@@ -1,4 +1,10 @@
+import os
+import torch
+import numpy as np
 import pytorch_lightning as pl
+from pytorch_lightning import Trainer
+from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
+from pytorch_lightning.callbacks import ModelCheckpoint
 from argparse import ArgumentParser
 from practical_ai.vision.gan.core import GAN
 from practical_ai.vision.gan.hparams import (
@@ -22,10 +28,53 @@ from practical_ai.vision.gan.hparams import (
 ) 
 
 
+SEED = 9527
+torch.manual_seed(SEED)
+np.random.seed(SEED)
+
+
 def main(args):
+    # FIXME: better way to decide image size by dataset name directly
+#     print(args.dataset, args.latent_dim, args.dim, args.channels)
+#     return
+    
     model = GAN(hparams=args)
-#     trainer = Trainer.from_argparse_args(args)
-    trainer = pl.trainer.Trainer()
+    
+    experiment_name = "_".join([
+        args.dataset, 
+        args.adversarial_loss_type,
+        f"bs{args.batch_size}",
+        f"lr{args.lr}",
+    ])
+
+    logger = TensorBoardLogger("lightning_logs", name=experiment_name)
+    
+    checkpoint_callback = ModelCheckpoint(
+        filepath=os.path.join(
+            os.getcwd(), 
+            "checkpoints", 
+            "gan",
+            experiment_name
+        ),
+        save_top_k=-1,
+        period=-1
+    )
+    
+    trainer = Trainer(
+        logger=logger,
+#         checkpoint_callback=checkpoint_callback,
+        gpus=args.gpus,
+        track_grad_norm=2,
+        log_gpu_memory=True,
+        max_epochs=args.max_epochs,
+    )
+    
+#     trainer = pl.trainer.Trainer()
+#     trainer = pl.Trainer(
+#         max_epochs=args.max_epochs,
+#     )
+#     trainer = pl.trainer.Trainer.from_argparse_args(args)
+#     trainer = pl.trainer.Trainer(max_epochs=args.max_epochs)
     
     trainer.fit(model)
 
@@ -65,5 +114,13 @@ if __name__ == '__main__':
                         help="adam: decay of first order momentum of gradient")
     parser.add_argument("--beta2", type=float, default=BETA2, nargs="?",
                         help="adam: decay of first order momentum of gradient")
-    args = parser.parse_args()
+    
+    # parent
+    parser.add_argument('--gpus', type=int, default=1, 
+                        help='how many gpus')
+    parser.add_argument('--max_epochs', type=int, default=100, 
+                        help='how many epochs')
+    
+    args, _ = parser.parse_known_args()
+#     args = parser.parse_args()
     main(args)

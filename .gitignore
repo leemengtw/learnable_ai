@@ -1,6 +1,9 @@
 # data root
 data
 
+# checkpoints
+checkpoints
+
 # tensorboard
 runs
 lightning_logs

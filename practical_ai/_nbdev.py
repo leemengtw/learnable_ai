@@ -5,6 +5,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"logger": "vision.gan.loss.ipynb",
          "get_data_root": "data.ipynb",
          "ImageOnlyDataset": "data.ipynb",
+         "Stickers": "data.ipynb",
          "get_dataset": "data.ipynb",
          "get_data_loader": "data.ipynb",
          "Identity": "layers.ipynb",

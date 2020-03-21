@@ -12,6 +12,7 @@ import functools
 import torchvision
 import pytorch_lightning as pl
 from torch import nn
+from dotenv import load_dotenv
 from more_itertools import pairwise
 from collections import OrderedDict
 from ...layers import Identity
@@ -38,6 +39,7 @@ from .hparams import (
 )
 
 
+_ = load_dotenv()
 logger = logging.getLogger()
 logger.setLevel("INFO")
 
@@ -271,6 +273,10 @@ class GAN(pl.LightningModule):
         self.g_loss_fn, self.d_loss_fn = \
             get_adversarial_losses_fns(self.hparams.adversarial_loss_type)
 
+        # infer image size by dataset
+
+
+
         # initialize networks
         g = get_generater(self.hparams.generator_type)
         self.generator = g(latent_dim=self.hparams.latent_dim,
@@ -312,7 +318,7 @@ class GAN(pl.LightningModule):
                                         betas=(self.hparams.beta1, self.hparams.beta2))
         return [self.d_optim, self.g_optim], []
 
-    def get_latent_vectors(self, n=8, on_gpu=True):
+    def get_latent_vectors(self, n, on_gpu=True):
         z = torch.randn(n, self.hparams.latent_dim)
         if on_gpu:
             z = z.cuda(self.last_real_images.device.index)
@@ -320,7 +326,7 @@ class GAN(pl.LightningModule):
 
     def training_step(self, batch, batch_idx, optimizer_idx):
         self.last_real_images = real_images = batch
-        z = self.get_latent_vectors(on_gpu=self.on_gpu)
+        z = self.get_latent_vectors(n=self.hparams.batch_size, on_gpu=self.on_gpu)
 
         # discriminator
         if optimizer_idx == 0:
@@ -359,8 +365,15 @@ class GAN(pl.LightningModule):
     def forward(self, z):
         return self.generator(z)
 
+#     def on_train_start(self):
+#         # https://github.com/PyTorchLightning/pytorch-lightning/blob/af621f8590b2f2ba046b508da2619cfd4995d876/pytorch_lightning/core/hooks.py#L45-L49
+#         # https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_hparams
+#         hparam_dict = {}
+#         metric_dict = {}
+#         self.logger.experiment.add_hparams({'lr': 0.1*i, 'bsize': i},{})
+
     def on_epoch_end(self):
-        z = self.get_latent_vectors(on_gpu=self.on_gpu)
+        z = self.get_latent_vectors(n=64, on_gpu=self.on_gpu)
         sample_images = self.generator(z)
         grid = torchvision.utils.make_grid(sample_images)
         self.logger.experiment.add_image('sample_images', grid, self.current_epoch)
