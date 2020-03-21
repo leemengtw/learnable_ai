@@ -4,9 +4,10 @@
     "core": "/core",
     "data": "/data",
     "experimental": "/experimental",
-    "gan": "/gan",
     "layers": "/layers",
-    "template": "/template",
-    "utils": "/utils"
+    "utils": "/utils",
+    "vision.gan.core": "/vision.gan.core",
+    "vision.gan.hparams": "/vision.gan.hparam",
+    "vision.gan.loss": "/vision.gan.loss"
   }
 }

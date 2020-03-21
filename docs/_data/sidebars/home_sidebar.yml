@@ -19,17 +19,20 @@ entries:
       title: experimental
       url: /experimental
     - output: web,pdf
-      title: gan
-      url: /gan
-    - output: web,pdf
       title: layers
       url: /layers
     - output: web,pdf
-      title: template
-      url: /template
-    - output: web,pdf
       title: utils
       url: /utils
+    - output: web,pdf
+      title: vision.gan.core
+      url: /vision.gan.core
+    - output: web,pdf
+      title: vision.gan.hparams
+      url: /vision.gan.hparam
+    - output: web,pdf
+      title: vision.gan.loss
+      url: /vision.gan.loss
     output: web
     title: practical_ai
   output: web
