@@ -43,13 +43,129 @@ summary: "description"
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Trainer">Trainer<a class="anchor-link" href="#Trainer">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
-<span class="kn">from</span> <span class="nn">practical_ai.vision.gan.core</span> <span class="kn">import</span> <span class="n">GAN</span>
+<span class="kn">from</span> <span class="nn">pytorch_lightning.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<span class="kn">from</span> <span class="nn">pytorch_lightning.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span>
+
+<span class="c1"># trainer = Trainer(%)</span>
+<span class="n">ModelCheckpoint</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Commands">Commands<a class="anchor-link" href="#Commands">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Train</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>python applications/gan/train.py stickers <span class="m">128</span> <span class="m">128</span> <span class="m">3</span> <span class="se">\</span>
+    --batch_size <span class="m">256</span> <span class="se">\</span>
+    --max_epochs <span class="m">1</span>
+
+
+python applications/gan/train.py stickers <span class="m">128</span> <span class="m">128</span> <span class="m">3</span> lsgan <span class="se">\</span>
+    --batch_size <span class="m">512</span> <span class="se">\</span>
+    --max_epochs <span class="m">100</span>
+
+
+python applications/gan/train.py crypko <span class="m">64</span> <span class="m">64</span> <span class="m">3</span> lsgan <span class="se">\</span>
+    --batch_size <span class="m">512</span> <span class="se">\</span>
+    --max_epochs <span class="m">10000</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Clean up</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>rm -r checkpoints/
+rm -r lightning_logs/
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="c1"># for _ in range(100):</span>
+<span class="c1">#     python examples/gan/train.py stickers 128 128 3 \</span>
+<span class="c1">#         --batch_size 256 \</span>
+<span class="c1">#         --max_epochs 100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Inference">Inference<a class="anchor-link" href="#Inference">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="c1"># import torch</span>
+<span class="c1"># from practical_ai.vision.gan.core import GAN</span>
+<span class="c1"># model = GAN.load_from_checkpoint(&quot;../models/_ckpt_epoch_0.ckpt&quot;)</span>
+<span class="c1"># model = model.eval()</span>
+
+<span class="c1"># z = torch.randn(1, 128)</span>
+<span class="c1"># img = model(z)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="c1"># !rm -rf ../models/_ckpt_epoch*</span>
 </pre></div>
 
     </div>
