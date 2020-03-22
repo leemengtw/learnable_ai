@@ -377,3 +377,7 @@ class GAN(pl.LightningModule):
         sample_images = self.generator(z)
         grid = torchvision.utils.make_grid(sample_images)
         self.logger.experiment.add_image('sample_images', grid, self.current_epoch)
+
+        sample_images_clamped = sample_images.clamp(0.0, 1.0)
+        grid_clmap = torchvision.utils.make_grid(sample_images_clamped)
+        self.logger.experiment.add_image('sample_images_clmap', grid_clmap, self.current_epoch)

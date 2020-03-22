@@ -49,16 +49,16 @@ def main(args):
 
     logger = TensorBoardLogger("lightning_logs", name=experiment_name)
     
-    checkpoint_callback = ModelCheckpoint(
-        filepath=os.path.join(
-            os.getcwd(), 
-            "checkpoints", 
-            "gan",
-            experiment_name
-        ),
-        save_top_k=-1,
-        period=-1
-    )
+#     checkpoint_callback = ModelCheckpoint(
+#         filepath=os.path.join(
+#             os.getcwd(), 
+#             "checkpoints", 
+#             "gan",
+#             experiment_name
+#         ),
+#         save_top_k=-1,
+#         period=10
+#     )
     
     trainer = Trainer(
         logger=logger,
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     # parent
     parser.add_argument('--gpus', type=int, default=1, 
                         help='how many gpus')
-    parser.add_argument('--max_epochs', type=int, default=100, 
+    parser.add_argument('--max_epochs', type=int, default=1000, 
                         help='how many epochs')
     
     args, _ = parser.parse_known_args()
