@@ -85,6 +85,7 @@ if __name__ == '__main__':
     
     # dataset
     parser.add_argument("dataset", type=str, default=DATASET, nargs="?",
+                        choices=["mnist", "stickers"],
                         help="name of dataset")
     parser.add_argument("latent_dim", type=int, default=LATENT_DIM, nargs="?",
                         help="dimensionality of the latent space")
@@ -93,12 +94,13 @@ if __name__ == '__main__':
     parser.add_argument("channels", type=int, default=CHANNELS, nargs="?",
                         help="image channels")
     # architecture, loss
+    parser.add_argument("adversarial_loss_type", type=str, default=ADVERSARIAL_LOSS_TYPE, nargs="?",
+                        choices=["gan", "lsgan"],
+                        help="adversarial loss type")
     parser.add_argument("generator_type", type=str, default=GENERATOR_TYPE, nargs="?",
                         help="generator type")
     parser.add_argument("discriminator_type", type=str, default=DISCRIMINATOR_TYPE, nargs="?",
                         help="discriminator type")
-    parser.add_argument("adversarial_loss_type", type=str, default=ADVERSARIAL_LOSS_TYPE, nargs="?",
-                        help="adversarial loss type")
     parser.add_argument("norm_type", type=str, default=NORM_TYPE, nargs="?",
                         help="normalization type")
     parser.add_argument("dim_channel_multiplier", type=int, default=DIM_CHANNEL_MULTIPLIER, nargs="?",

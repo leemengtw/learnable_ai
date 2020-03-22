@@ -37,6 +37,7 @@ index = {"logger": "vision.gan.loss.ipynb",
          "BETA1": "vision.gan.hparam.ipynb",
          "BETA2": "vision.gan.hparam.ipynb",
          "get_gan_losses_fns": "vision.gan.loss.ipynb",
+         "get_lsgan_losses_fns": "vision.gan.loss.ipynb",
          "get_adversarial_losses_fns": "vision.gan.loss.ipynb"}
 
 modules = ["core.py",
