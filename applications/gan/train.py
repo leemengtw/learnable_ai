@@ -85,7 +85,7 @@ if __name__ == '__main__':
     
     # dataset
     parser.add_argument("dataset", type=str, default=DATASET, nargs="?",
-                        choices=["mnist", "stickers"],
+                        choices=["mnist", "stickers", "crypko"],
                         help="name of dataset")
     parser.add_argument("latent_dim", type=int, default=LATENT_DIM, nargs="?",
                         help="dimensionality of the latent space")

@@ -296,12 +296,12 @@ class GAN(pl.LightningModule):
         self.last_real_images = None
 
     def prepare_data(self):
-        self.train_dataset = get_dataset(dataset=self.hparams.dataset,
+        self.train_dataset = get_dataset(dataset_name=self.hparams.dataset,
                                          split="train",
                                          size=(self.hparams.dim, self.hparams.dim),
                                          return_label=False)
 
-        self.valid_dataset = get_dataset(dataset=self.hparams.dataset,
+        self.valid_dataset = get_dataset(dataset_name=self.hparams.dataset,
                                          split="valid",
                                          size=(self.hparams.dim, self.hparams.dim),
                                          return_label=False)
