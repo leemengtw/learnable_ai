@@ -1,10 +1,10 @@
 SRC = $(wildcard nbs/*.ipynb)
 
-all: practical_ai docs
+all: learnable_ai docs
 
-practical_ai: $(SRC)
+learnable_ai: $(SRC)
 	nbdev_build_lib
-	touch practical_ai
+	touch learnable_ai
 
 docs_serve: docs
 	cd docs && bundle exec jekyll serve

@@ -50,9 +50,9 @@ modules = ["core.py",
            "vision/gan/hparams.py",
            "vision/gan/loss.py"]
 
-doc_url = "https://leemengtaiwan.github.io/practical_ai/"
+doc_url = "https://leemengtaiwan.github.io/learnable_ai/"
 
-git_url = "https://github.com/leemengtaiwan/practical_ai/tree/master/"
+git_url = "https://github.com/leemengtaiwan/learnable_ai/tree/master/"
 
 
 def custom_doc_links(name): return None

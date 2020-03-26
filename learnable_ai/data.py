@@ -171,6 +171,8 @@ def get_dataset(dataset_name, split="full", size=None, transform=None,
         ds_params = dict(root=root, transform=transform, download=True)
         if os.path.exists(os.path.join(root, "MNIST")):
             ds_params['download'] = False
+        else:
+            ds_params['download'] = True
 
         if split == "train":
             ds_params['train'] = True

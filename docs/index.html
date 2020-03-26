@@ -1,11 +1,12 @@
 ---
 
-title: Practical AI
+title: Title
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "以 PyTorch、TensorFlow、scikit-learn 以及 pandas 等函式庫實作的實務機器學習、深度學習應用。"
+summary: "summary"
+description: "summary"
 ---
 <!--
 
@@ -18,43 +19,31 @@ summary: "以 PyTorch、TensorFlow、scikit-learn 以及 pandas 等函式庫實�
 -->
 
 <div class="container" id="notebook-container">
-    {% raw %}
         
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;">&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;<a class="anchor-link" href="#&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>載下 repo：</p>
+    {% endraw %}
 
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<div align="center">
+
+![Logo](/learnable_ai/images/icon67.png)
+
+# Learnable AI
+
+**以 PyTorch 實作，可供學習 AI 的各式深度學習應用。**
+
+</div><hr>
+<h2 id="&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;">&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;<a class="anchor-link" href="#&#26412;&#22320;&#38283;&#30332;&#33287;&#29872;&#22659;&#35373;&#32622;"> </a></h2><p>載下 repo：</p>
 <div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">REPO</span><span class="o">=</span>practical_ai
 git clone https://github.com/leemengtaiwan/<span class="nv">$REPO</span>.git
 <span class="nb">cd</span> <span class="nv">$REPO</span>
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>建立新的 <a href="https://www.anaconda.com/">Anaconda</a> 環境並在該環境內安裝函式庫：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>conda create -n <span class="nv">$REPO</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 -y
 conda activate <span class="nv">$REPO</span>  <span class="c1"># 或 source activate $REPO</span>
 pip install -r requirements.txt
@@ -64,75 +53,30 @@ conda install -c conda-forge opencv
 pip install easydict
 pip install more-itertools
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>安裝 Jupyter Lab：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>conda install -c conda-forge jupyterlab -y
 pip install ipywidgets
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>安裝 <a href="https://github.com/rapidsai/jupyterlab-nvdashboard">JupyterLab GPU Dashboards</a>：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>pip install jupyterlab-nvdashboard
 jupyter labextension install jupyterlab-nvdashboard
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>設置 <a href="https://github.com/fastai/nbdev">nbdev</a> 環境並以 editable 的方式安裝此 package：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>nbdev_install_git_hooks
 nbdev_build_lib
 pip install -e <span class="s2">&quot;.[dev]&quot;</span>
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p>建立環境變數或是文件：</p>
+<div class="highlight"><pre><span></span>torch .env
+<span class="nb">export</span> <span class="nv">DATA_ROOT</span><span class="o">=</span>data
+</pre></div>
 <p>更新文件：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>nbdev_build_docs
 </pre></div>
 
 </div>
 </div>
 </div>
-    {% endraw %}
 </div>
  
 

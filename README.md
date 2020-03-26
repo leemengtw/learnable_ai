@@ -1,5 +1,14 @@
-# Practical AI
-> 以 PyTorch、TensorFlow、scikit-learn 以及 pandas 等函式庫實作的實務機器學習、深度學習應用。
+<div align="center">
+
+![Logo](notebooks/images/icon67.png)
+
+# Learnable AI
+
+**以 PyTorch 實作，可供學習 AI 的各式深度學習應用。**
+
+</div>
+
+---
 
 
 ## 本地開發與環境設置
@@ -47,8 +56,16 @@ nbdev_build_lib
 pip install -e ".[dev]"
 ```
 
+建立環境變數或是文件：
+
+```bash
+torch .env
+export DATA_ROOT=data
+```
+
 更新文件：
 
 ```bash
 nbdev_build_docs
 ```
+

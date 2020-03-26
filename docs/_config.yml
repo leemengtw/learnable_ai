@@ -1,7 +1,7 @@
-repository: leemengtaiwan/practical_ai
+repository: leemengtaiwan/learnable_ai
 output: web
-topnav_title: practical_ai
-site_title: practical_ai
+topnav_title: learnable_ai
+site_title: learnable_ai
 company_name: LeeMeng
 description: 以 PyTorch、TensorFlow、scikit-learn 以及 pandas 等函式庫實作的實務機器學習、深度學習應用。
 # Set to false to disable KaTeX math
@@ -61,4 +61,4 @@ sidebars:
 permalink: pretty
 
 theme: jekyll-theme-cayman
-baseurl: /practical_ai/
+baseurl: /learnable_ai/

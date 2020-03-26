@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/leemengtaiwan/practical_ai
+      external_url: https://github.com/leemengtaiwan/learnable_ai
 
 #Topnav dropdowns
 topnav_dropdowns:
