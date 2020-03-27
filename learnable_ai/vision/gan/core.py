@@ -17,7 +17,7 @@ from more_itertools import pairwise
 from collections import OrderedDict
 from ...layers import Identity
 from ...data import get_dataset, get_dataloader
-from .loss import get_adversarial_losses_fns
+from .loss import get_adversarial_loss_fns
 from .hparams import (
     # dataset
     DATASET,
@@ -271,7 +271,7 @@ class GAN(pl.LightningModule):
 
         # adversarial losses
         self.g_loss_fn, self.d_loss_fn = \
-            get_adversarial_losses_fns(self.hparams.adversarial_loss_type)
+            get_adversarial_loss_fns(self.hparams.adversarial_loss_type)
 
         # infer image size by dataset
 
@@ -328,7 +328,7 @@ class GAN(pl.LightningModule):
         self.last_real_images = real_images = batch
         z = self.get_latent_vectors(n=self.hparams.batch_size, on_gpu=self.on_gpu)
 
-        # discriminator
+        # discriminator's turn
         if optimizer_idx == 0:
             fake_images = self.generator(z).detach()
             real_logits = self.discriminator(real_images)
@@ -348,8 +348,15 @@ class GAN(pl.LightningModule):
             })
             return output
 
-        # generator
+        # generator's turn
         if optimizer_idx == 1:
+            # clip discriminator's weight if required
+            clip_value = self.hparams.discriminator_weight_clip_value
+            if clip_value:
+                for p in self.discriminator.parameters():
+                    p.data.clamp_(-clip_value, clip_value)
+
+            # genererator forward
             fake_images = self.generateed_images = self.generator(z)
             fake_logits = self.discriminator(fake_images)
             g_loss = self.g_loss_fn(fake_logits)
