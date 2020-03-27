@@ -42,7 +42,8 @@ setuptools.setup(
     extras_require={
         'dotenv': ['python-dotenv'],
         'dev': [
-            'nbdev'
+            'nbdev',
+            'ipywidgets'
         ]
     },
     python_requires='>=' + cfg['min_python'],

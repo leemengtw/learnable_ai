@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 from more_itertools import pairwise
 from collections import OrderedDict
 from ...layers import Identity
-from ...data import get_dataset, get_data_loader
+from ...data import get_dataset, get_dataloader
 from .loss import get_adversarial_losses_fns
 from .hparams import (
     # dataset
@@ -307,7 +307,7 @@ class GAN(pl.LightningModule):
                                          return_label=False)
 
     def train_dataloader(self):
-        return get_data_loader(self.train_dataset, batch_size=self.hparams.batch_size)
+        return get_dataloader(self.train_dataset, batch_size=self.hparams.batch_size)
 
     def configure_optimizers(self):
         self.g_optim = torch.optim.Adam(self.generator.parameters(),
