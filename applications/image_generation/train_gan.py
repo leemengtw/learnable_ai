@@ -6,6 +6,7 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
 from pytorch_lightning.callbacks import ModelCheckpoint
 from argparse import ArgumentParser
+from learnable_ai.utils import ensure_reproducible
 from learnable_ai.vision.gan.core import GAN
 from learnable_ai.vision.gan.hparams import (
     # dataset
@@ -28,39 +29,42 @@ from learnable_ai.vision.gan.hparams import (
 ) 
 
 
-SEED = 9527
-torch.manual_seed(SEED)
-np.random.seed(SEED)
-
 
 def main(args):
-    # FIXME: better way to decide image size by dataset name directly
+    ensure_reproducible()
     
+    # FIXME: better way to decide image size by dataset name directly
+    print(args)
     model = GAN(hparams=args)
+    
+    adv_type = args.adversarial_loss_type
+    if args.discriminator_weight_clip_value:
+        v = args.discriminator_weight_clip_value
+        adv_type = "_".join([adv_type, f"wclip{v}"])
     
     experiment_name = "_".join([
         args.dataset, 
-        args.adversarial_loss_type,
+        adv_type,
         f"bs{args.batch_size}",
         f"lr{args.lr}",
     ])
 
     logger = TensorBoardLogger("lightning_logs", name=experiment_name)
     
-    checkpoint_callback = ModelCheckpoint(
-        filepath=os.path.join(
-            os.getcwd(), 
-            "checkpoints", 
-            "gan",
-            experiment_name
-        ),
-        save_top_k=-1,
-        period=10
-    )
+#     checkpoint_callback = ModelCheckpoint(
+#         filepath=os.path.join(
+#             os.getcwd(), 
+#             "checkpoints", 
+#             "gan",
+#             experiment_name
+#         ),
+#         save_top_k=-1,
+#         period=10
+#     )
     
     trainer = Trainer(
         logger=logger,
-        checkpoint_callback=checkpoint_callback,
+#         checkpoint_callback=checkpoint_callback,
         gpus=args.gpus,
         track_grad_norm=2,
         log_gpu_memory=True,
@@ -93,12 +97,14 @@ if __name__ == '__main__':
                         help="image channels")
     # architecture, loss
     parser.add_argument("--adversarial_loss_type", type=str, default=ADVERSARIAL_LOSS_TYPE, nargs="?",
-                        choices=["gan", "lsgan"],
+                        choices=["gan", "lsgan", "wgan"],
                         help="adversarial loss type")
     parser.add_argument("--generator_type", type=str, default=GENERATOR_TYPE, nargs="?",
                         help="generator type")
     parser.add_argument("--discriminator_type", type=str, default=DISCRIMINATOR_TYPE, nargs="?",
                         help="discriminator type")
+    parser.add_argument("--discriminator_weight_clip_value", type=float, default=0., 
+                        help="lower and upper clip value for disc. weights")
     parser.add_argument("--norm_type", type=str, default=NORM_TYPE, nargs="?",
                         help="normalization type")
     parser.add_argument("--dim_channel_multiplier", type=int, default=DIM_CHANNEL_MULTIPLIER, nargs="?",
