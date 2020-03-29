@@ -28,6 +28,9 @@ entries:
       title: vision.gan.core
       url: /vision.gan.core
     - output: web,pdf
+      title: vision.gan.gp
+      url: /vision.gan.gp
+    - output: web,pdf
       title: vision.gan.hparams
       url: /vision.gan.hparam
     - output: web,pdf

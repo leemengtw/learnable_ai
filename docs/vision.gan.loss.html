@@ -5,8 +5,8 @@ title: vision.gan.loss
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "對抗生成網路（Generative Adversarial Network） 常見的損失函數。"
-description: "對抗生成網路（Generative Adversarial Network） 常見的損失函數。"
+summary: "實作對抗生成網路（Generative Adversarial Network） 文獻中常見的損失函數。此模組主要提供可依照對抗類型（adversarial type） 取得生成器與辨別器對應損失函數的介面。"
+description: "實作對抗生成網路（Generative Adversarial Network） 文獻中常見的損失函數。此模組主要提供可依照對抗類型（adversarial type） 取得生成器與辨別器對應損失函數的介面。"
 ---
 <!--
 
@@ -34,6 +34,18 @@ description: "對抗生成網路（Generative Adversarial Network） 常見的�
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Utilies">Utilies<a class="anchor-link" href="#Utilies"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#24314;&#31435;&#36319;-logits-&#21516;-device-&#30340;-label-tensor">&#24314;&#31435;&#36319; logits &#21516; device &#30340; label tensor<a class="anchor-link" href="#&#24314;&#31435;&#36319;-logits-&#21516;-device-&#30340;-label-tensor"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -52,7 +64,7 @@ description: "對抗生成網路（Generative Adversarial Network） 常見的�
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_gan_losses_fns" class="doc_header"><code>get_gan_losses_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_gan_losses_fns</code>(<strong><code>is_logits</code></strong>=<em><code>True</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="create_like" class="doc_header"><code>create_like</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_like</code>(<strong><code>t</code></strong>, <strong><code>func</code></strong>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 
 </div>
@@ -65,6 +77,60 @@ description: "對抗生成網路（Generative Adversarial Network） 常見的�
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ones_like" class="doc_header"><code>ones_like</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ones_like</code>(<strong><code>t</code></strong>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="zeros_like" class="doc_header"><code>zeros_like</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>zeros_like</code>(<strong><code>t</code></strong>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20381;&#23565;&#25239;&#39006;&#22411;&#21462;&#24471;&#30456;&#25033;&#29983;&#25104;&#22120;&#33287;&#37969;&#21029;&#22120;&#25613;&#22833;&#20989;&#25976;">&#20381;&#23565;&#25239;&#39006;&#22411;&#21462;&#24471;&#30456;&#25033;&#29983;&#25104;&#22120;&#33287;&#37969;&#21029;&#22120;&#25613;&#22833;&#20989;&#25976;<a class="anchor-link" href="#&#20381;&#23565;&#25239;&#39006;&#22411;&#21462;&#24471;&#30456;&#25033;&#29983;&#25104;&#22120;&#33287;&#37969;&#21029;&#22120;&#25613;&#22833;&#20989;&#25976;"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -83,7 +149,7 @@ description: "對抗生成網路（Generative Adversarial Network） 常見的�
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_lsgan_losses_fns" class="doc_header"><code>get_lsgan_losses_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_lsgan_losses_fns</code>(<strong><code>is_logits</code></strong>=<em><code>True</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="get_adversarial_loss_fns" class="doc_header"><code>get_adversarial_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_adversarial_loss_fns</code>(<strong><code>type</code></strong>, <strong><code>is_logits</code></strong>=<em><code>True</code></em>, <strong><code>reduction</code></strong>=<em><code>'mean'</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 
 </div>
@@ -96,6 +162,12 @@ description: "對抗生成網路（Generative Adversarial Network） 常見的�
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#28210;&#26579;&#19981;&#21516;&#23565;&#25239;&#39006;&#22411;&#30340;&#25613;&#22833;&#20989;&#25976;">&#28210;&#26579;&#19981;&#21516;&#23565;&#25239;&#39006;&#22411;&#30340;&#25613;&#22833;&#20989;&#25976;<a class="anchor-link" href="#&#28210;&#26579;&#19981;&#21516;&#23565;&#25239;&#39006;&#22411;&#30340;&#25613;&#22833;&#20989;&#25976;"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -114,9 +186,590 @@ description: "對抗生成網路（Generative Adversarial Network） 常見的�
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_adversarial_losses_fns" class="doc_header"><code>get_adversarial_losses_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_adversarial_losses_fns</code>(<strong><code>_type</code></strong>, <strong><code>is_logits</code></strong>=<em><code>True</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="draw_adversarial_loss_fns" class="doc_header"><code>draw_adversarial_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L59" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>draw_adversarial_loss_fns</code>(<strong><code>type</code></strong>, <strong><code>arange</code></strong>=<em><code>(-3, 3.0, 0.1)</code></em>, <strong><code>reduction</code></strong>=<em><code>'none'</code></em>, <strong><code>title</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="GAN">GAN<a class="anchor-link" href="#GAN"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_gan_loss_fns" class="doc_header"><code>get_gan_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L100" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_gan_loss_fns</code>(<strong><code>is_logits</code></strong>=<em><code>True</code></em>, <strong><code>reduction</code></strong>=<em><code>'mean'</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">draw_adversarial_loss_fns</span><span class="p">(</span><span class="s2">&quot;gan&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-957d63d9056043ca8bdd6aa226b8b6b2"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    const outputDiv = document.getElementById("altair-viz-957d63d9056043ca8bdd6aa226b8b6b2");
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "real_logits"}, "y": {"type": "quantitative", "field": "d_real_loss"}}, "title": "[D] real loss"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "d_fake_loss"}}, "title": "[D] fake loss"}], "title": "gan"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "g_loss"}}, "title": "[G] loss"}], "data": {"name": "data-03417f8f9b9f978ca89304a237f3b074"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json", "datasets": {"data-03417f8f9b9f978ca89304a237f3b074": [{"real_logits": -3.0, "fake_logits": -3.0, "g_loss": 3.0485873222351074, "d_real_loss": 3.0485873222351074, "d_fake_loss": 0.04858732968568802}, {"real_logits": -2.9000000953674316, "fake_logits": -2.9000000953674316, "g_loss": 2.9535627365112305, "d_real_loss": 2.9535627365112305, "d_fake_loss": 0.053562749177217484}, {"real_logits": -2.799999952316284, "fake_logits": -2.799999952316284, "g_loss": 2.8590328693389893, "d_real_loss": 2.8590328693389893, "d_fake_loss": 0.059032849967479706}, {"real_logits": -2.700000047683716, "fake_logits": -2.700000047683716, "g_loss": 2.7650437355041504, "d_real_loss": 2.7650437355041504, "d_fake_loss": 0.06504359841346741}, {"real_logits": -2.5999999046325684, "fake_logits": -2.5999999046325684, "g_loss": 2.671644687652588, "d_real_loss": 2.671644687652588, "d_fake_loss": 0.07164470106363297}, {"real_logits": -2.5, "fake_logits": -2.5, "g_loss": 2.578889846801758, "d_real_loss": 2.578889846801758, "d_fake_loss": 0.07888974994421005}, {"real_logits": -2.4000000953674316, "fake_logits": -2.4000000953674316, "g_loss": 2.4868361949920654, "d_real_loss": 2.4868361949920654, "d_fake_loss": 0.08683611452579498}, {"real_logits": -2.299999952316284, "fake_logits": -2.299999952316284, "g_loss": 2.395545482635498, "d_real_loss": 2.395545482635498, "d_fake_loss": 0.0955454483628273}, {"real_logits": -2.200000047683716, "fake_logits": -2.200000047683716, "g_loss": 2.3050832748413086, "d_real_loss": 2.3050832748413086, "d_fake_loss": 0.10508329421281815}, {"real_logits": -2.0999999046325684, "fake_logits": -2.0999999046325684, "g_loss": 2.215519428253174, "d_real_loss": 2.215519428253174, "d_fake_loss": 0.11551952362060547}, {"real_logits": -2.0, "fake_logits": -2.0, "g_loss": 2.1269280910491943, "d_real_loss": 2.1269280910491943, "d_fake_loss": 0.12692804634571075}, {"real_logits": -1.899999976158142, "fake_logits": -1.899999976158142, "g_loss": 2.039386749267578, "d_real_loss": 2.039386749267578, "d_fake_loss": 0.13938669860363007}, {"real_logits": -1.7999999523162842, "fake_logits": -1.7999999523162842, "g_loss": 1.9529776573181152, "d_real_loss": 1.9529776573181152, "d_fake_loss": 0.15297766029834747}, {"real_logits": -1.7000000476837158, "fake_logits": -1.7000000476837158, "g_loss": 1.8677860498428345, "d_real_loss": 1.8677860498428345, "d_fake_loss": 0.16778598725795746}, {"real_logits": -1.600000023841858, "fake_logits": -1.600000023841858, "g_loss": 1.7839007377624512, "d_real_loss": 1.7839007377624512, "d_fake_loss": 0.18390077352523804}, {"real_logits": -1.5, "fake_logits": -1.5, "g_loss": 1.7014133930206299, "d_real_loss": 1.7014133930206299, "d_fake_loss": 0.2014133334159851}, {"real_logits": -1.399999976158142, "fake_logits": -1.399999976158142, "g_loss": 1.6204173564910889, "d_real_loss": 1.6204173564910889, "d_fake_loss": 0.22041738033294678}, {"real_logits": -1.2999999523162842, "fake_logits": -1.2999999523162842, "g_loss": 1.5410083532333374, "d_real_loss": 1.5410083532333374, "d_fake_loss": 0.24100841581821442}, {"real_logits": -1.2000000476837158, "fake_logits": -1.2000000476837158, "g_loss": 1.4632824659347534, "d_real_loss": 1.4632824659347534, "d_fake_loss": 0.26328244805336}, {"real_logits": -1.100000023841858, "fake_logits": -1.100000023841858, "g_loss": 1.3873353004455566, "d_real_loss": 1.3873353004455566, "d_fake_loss": 0.2873353064060211}, {"real_logits": -1.0, "fake_logits": -1.0, "g_loss": 1.31326162815094, "d_real_loss": 1.31326162815094, "d_fake_loss": 0.31326165795326233}, {"real_logits": -0.8999999761581421, "fake_logits": -0.8999999761581421, "g_loss": 1.2411539554595947, "d_real_loss": 1.2411539554595947, "d_fake_loss": 0.34115391969680786}, {"real_logits": -0.800000011920929, "fake_logits": -0.800000011920929, "g_loss": 1.1711006164550781, "d_real_loss": 1.1711006164550781, "d_fake_loss": 0.37110063433647156}, {"real_logits": -0.699999988079071, "fake_logits": -0.699999988079071, "g_loss": 1.1031861305236816, "d_real_loss": 1.1031861305236816, "d_fake_loss": 0.4031860828399658}, {"real_logits": -0.6000000238418579, "fake_logits": -0.6000000238418579, "g_loss": 1.0374879837036133, "d_real_loss": 1.0374879837036133, "d_fake_loss": 0.43748798966407776}, {"real_logits": -0.5, "fake_logits": -0.5, "g_loss": 0.9740769863128662, "d_real_loss": 0.9740769863128662, "d_fake_loss": 0.4740769863128662}, {"real_logits": -0.4000000059604645, "fake_logits": -0.4000000059604645, "g_loss": 0.9130152463912964, "d_real_loss": 0.9130152463912964, "d_fake_loss": 0.5130152702331543}, {"real_logits": -0.30000001192092896, "fake_logits": -0.30000001192092896, "g_loss": 0.8543552756309509, "d_real_loss": 0.8543552756309509, "d_fake_loss": 0.554355263710022}, {"real_logits": -0.20000000298023224, "fake_logits": -0.20000000298023224, "g_loss": 0.7981389164924622, "d_real_loss": 0.7981389164924622, "d_fake_loss": 0.5981389284133911}, {"real_logits": -0.10000000149011612, "fake_logits": -0.10000000149011612, "g_loss": 0.7443966865539551, "d_real_loss": 0.7443966865539551, "d_fake_loss": 0.6443966627120972}, {"real_logits": 0.0, "fake_logits": 0.0, "g_loss": 0.6931471824645996, "d_real_loss": 0.6931471824645996, "d_fake_loss": 0.6931471824645996}, {"real_logits": 0.10000000149011612, "fake_logits": 0.10000000149011612, "g_loss": 0.6443966627120972, "d_real_loss": 0.6443966627120972, "d_fake_loss": 0.7443966865539551}, {"real_logits": 0.20000000298023224, "fake_logits": 0.20000000298023224, "g_loss": 0.5981389284133911, "d_real_loss": 0.5981389284133911, "d_fake_loss": 0.7981389164924622}, {"real_logits": 0.30000001192092896, "fake_logits": 0.30000001192092896, "g_loss": 0.554355263710022, "d_real_loss": 0.554355263710022, "d_fake_loss": 0.8543552756309509}, {"real_logits": 0.4000000059604645, "fake_logits": 0.4000000059604645, "g_loss": 0.5130152702331543, "d_real_loss": 0.5130152702331543, "d_fake_loss": 0.9130152463912964}, {"real_logits": 0.5, "fake_logits": 0.5, "g_loss": 0.4740769863128662, "d_real_loss": 0.4740769863128662, "d_fake_loss": 0.9740769863128662}, {"real_logits": 0.6000000238418579, "fake_logits": 0.6000000238418579, "g_loss": 0.43748798966407776, "d_real_loss": 0.43748798966407776, "d_fake_loss": 1.0374879837036133}, {"real_logits": 0.699999988079071, "fake_logits": 0.699999988079071, "g_loss": 0.4031860828399658, "d_real_loss": 0.4031860828399658, "d_fake_loss": 1.1031861305236816}, {"real_logits": 0.800000011920929, "fake_logits": 0.800000011920929, "g_loss": 0.37110063433647156, "d_real_loss": 0.37110063433647156, "d_fake_loss": 1.1711006164550781}, {"real_logits": 0.8999999761581421, "fake_logits": 0.8999999761581421, "g_loss": 0.34115391969680786, "d_real_loss": 0.34115391969680786, "d_fake_loss": 1.2411539554595947}, {"real_logits": 1.0, "fake_logits": 1.0, "g_loss": 0.31326165795326233, "d_real_loss": 0.31326165795326233, "d_fake_loss": 1.31326162815094}, {"real_logits": 1.100000023841858, "fake_logits": 1.100000023841858, "g_loss": 0.2873353064060211, "d_real_loss": 0.2873353064060211, "d_fake_loss": 1.3873353004455566}, {"real_logits": 1.2000000476837158, "fake_logits": 1.2000000476837158, "g_loss": 0.26328244805336, "d_real_loss": 0.26328244805336, "d_fake_loss": 1.4632824659347534}, {"real_logits": 1.2999999523162842, "fake_logits": 1.2999999523162842, "g_loss": 0.24100841581821442, "d_real_loss": 0.24100841581821442, "d_fake_loss": 1.5410083532333374}, {"real_logits": 1.399999976158142, "fake_logits": 1.399999976158142, "g_loss": 0.22041738033294678, "d_real_loss": 0.22041738033294678, "d_fake_loss": 1.6204173564910889}, {"real_logits": 1.5, "fake_logits": 1.5, "g_loss": 0.2014133334159851, "d_real_loss": 0.2014133334159851, "d_fake_loss": 1.7014133930206299}, {"real_logits": 1.600000023841858, "fake_logits": 1.600000023841858, "g_loss": 0.18390077352523804, "d_real_loss": 0.18390077352523804, "d_fake_loss": 1.7839007377624512}, {"real_logits": 1.7000000476837158, "fake_logits": 1.7000000476837158, "g_loss": 0.16778598725795746, "d_real_loss": 0.16778598725795746, "d_fake_loss": 1.8677860498428345}, {"real_logits": 1.7999999523162842, "fake_logits": 1.7999999523162842, "g_loss": 0.15297766029834747, "d_real_loss": 0.15297766029834747, "d_fake_loss": 1.9529776573181152}, {"real_logits": 1.899999976158142, "fake_logits": 1.899999976158142, "g_loss": 0.13938669860363007, "d_real_loss": 0.13938669860363007, "d_fake_loss": 2.039386749267578}, {"real_logits": 2.0, "fake_logits": 2.0, "g_loss": 0.12692804634571075, "d_real_loss": 0.12692804634571075, "d_fake_loss": 2.1269280910491943}, {"real_logits": 2.0999999046325684, "fake_logits": 2.0999999046325684, "g_loss": 0.11551952362060547, "d_real_loss": 0.11551952362060547, "d_fake_loss": 2.215519428253174}, {"real_logits": 2.200000047683716, "fake_logits": 2.200000047683716, "g_loss": 0.10508329421281815, "d_real_loss": 0.10508329421281815, "d_fake_loss": 2.3050832748413086}, {"real_logits": 2.299999952316284, "fake_logits": 2.299999952316284, "g_loss": 0.0955454483628273, "d_real_loss": 0.0955454483628273, "d_fake_loss": 2.395545482635498}, {"real_logits": 2.4000000953674316, "fake_logits": 2.4000000953674316, "g_loss": 0.08683611452579498, "d_real_loss": 0.08683611452579498, "d_fake_loss": 2.4868361949920654}, {"real_logits": 2.5, "fake_logits": 2.5, "g_loss": 0.07888974994421005, "d_real_loss": 0.07888974994421005, "d_fake_loss": 2.578889846801758}, {"real_logits": 2.5999999046325684, "fake_logits": 2.5999999046325684, "g_loss": 0.07164470106363297, "d_real_loss": 0.07164470106363297, "d_fake_loss": 2.671644687652588}, {"real_logits": 2.700000047683716, "fake_logits": 2.700000047683716, "g_loss": 0.06504359841346741, "d_real_loss": 0.06504359841346741, "d_fake_loss": 2.7650437355041504}, {"real_logits": 2.799999952316284, "fake_logits": 2.799999952316284, "g_loss": 0.059032849967479706, "d_real_loss": 0.059032849967479706, "d_fake_loss": 2.8590328693389893}, {"real_logits": 2.9000000953674316, "fake_logits": 2.9000000953674316, "g_loss": 0.053562749177217484, "d_real_loss": 0.053562749177217484, "d_fake_loss": 2.9535627365112305}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="LSGAN">LSGAN<a class="anchor-link" href="#LSGAN"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_lsgan_loss_fns" class="doc_header"><code>get_lsgan_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L119" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_lsgan_loss_fns</code>(<strong><code>reduction</code></strong>=<em><code>'mean'</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">draw_adversarial_loss_fns</span><span class="p">(</span><span class="s2">&quot;lsgan&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-3b4fc9dd6cde4a62ba401c1dd9204955"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    const outputDiv = document.getElementById("altair-viz-3b4fc9dd6cde4a62ba401c1dd9204955");
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "real_logits"}, "y": {"type": "quantitative", "field": "d_real_loss"}}, "title": "[D] real loss"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "d_fake_loss"}}, "title": "[D] fake loss"}], "title": "lsgan"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "g_loss"}}, "title": "[G] loss"}], "data": {"name": "data-f6ec6af41ee3af8ceac104ecc7325cd8"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json", "datasets": {"data-f6ec6af41ee3af8ceac104ecc7325cd8": [{"real_logits": -3.0, "fake_logits": -3.0, "g_loss": 16.0, "d_real_loss": 16.0, "d_fake_loss": 9.0}, {"real_logits": -2.9000000953674316, "fake_logits": -2.9000000953674316, "g_loss": 15.210000991821289, "d_real_loss": 15.210000991821289, "d_fake_loss": 8.410000801086426}, {"real_logits": -2.799999952316284, "fake_logits": -2.799999952316284, "g_loss": 14.4399995803833, "d_real_loss": 14.4399995803833, "d_fake_loss": 7.839999675750732}, {"real_logits": -2.700000047683716, "fake_logits": -2.700000047683716, "g_loss": 13.690000534057617, "d_real_loss": 13.690000534057617, "d_fake_loss": 7.2900004386901855}, {"real_logits": -2.5999999046325684, "fake_logits": -2.5999999046325684, "g_loss": 12.959999084472656, "d_real_loss": 12.959999084472656, "d_fake_loss": 6.7599992752075195}, {"real_logits": -2.5, "fake_logits": -2.5, "g_loss": 12.25, "d_real_loss": 12.25, "d_fake_loss": 6.25}, {"real_logits": -2.4000000953674316, "fake_logits": -2.4000000953674316, "g_loss": 11.5600004196167, "d_real_loss": 11.5600004196167, "d_fake_loss": 5.760000228881836}, {"real_logits": -2.299999952316284, "fake_logits": -2.299999952316284, "g_loss": 10.889999389648438, "d_real_loss": 10.889999389648438, "d_fake_loss": 5.289999961853027}, {"real_logits": -2.200000047683716, "fake_logits": -2.200000047683716, "g_loss": 10.24000072479248, "d_real_loss": 10.24000072479248, "d_fake_loss": 4.840000152587891}, {"real_logits": -2.0999999046325684, "fake_logits": -2.0999999046325684, "g_loss": 9.609999656677246, "d_real_loss": 9.609999656677246, "d_fake_loss": 4.409999370574951}, {"real_logits": -2.0, "fake_logits": -2.0, "g_loss": 9.0, "d_real_loss": 9.0, "d_fake_loss": 4.0}, {"real_logits": -1.899999976158142, "fake_logits": -1.899999976158142, "g_loss": 8.410000801086426, "d_real_loss": 8.410000801086426, "d_fake_loss": 3.609999895095825}, {"real_logits": -1.7999999523162842, "fake_logits": -1.7999999523162842, "g_loss": 7.839999675750732, "d_real_loss": 7.839999675750732, "d_fake_loss": 3.239999771118164}, {"real_logits": -1.7000000476837158, "fake_logits": -1.7000000476837158, "g_loss": 7.2900004386901855, "d_real_loss": 7.2900004386901855, "d_fake_loss": 2.890000104904175}, {"real_logits": -1.600000023841858, "fake_logits": -1.600000023841858, "g_loss": 6.7599992752075195, "d_real_loss": 6.7599992752075195, "d_fake_loss": 2.56000018119812}, {"real_logits": -1.5, "fake_logits": -1.5, "g_loss": 6.25, "d_real_loss": 6.25, "d_fake_loss": 2.25}, {"real_logits": -1.399999976158142, "fake_logits": -1.399999976158142, "g_loss": 5.760000228881836, "d_real_loss": 5.760000228881836, "d_fake_loss": 1.959999918937683}, {"real_logits": -1.2999999523162842, "fake_logits": -1.2999999523162842, "g_loss": 5.289999961853027, "d_real_loss": 5.289999961853027, "d_fake_loss": 1.6899998188018799}, {"real_logits": -1.2000000476837158, "fake_logits": -1.2000000476837158, "g_loss": 4.840000152587891, "d_real_loss": 4.840000152587891, "d_fake_loss": 1.440000057220459}, {"real_logits": -1.100000023841858, "fake_logits": -1.100000023841858, "g_loss": 4.409999370574951, "d_real_loss": 4.409999370574951, "d_fake_loss": 1.2100000381469727}, {"real_logits": -1.0, "fake_logits": -1.0, "g_loss": 4.0, "d_real_loss": 4.0, "d_fake_loss": 1.0}, {"real_logits": -0.8999999761581421, "fake_logits": -0.8999999761581421, "g_loss": 3.609999895095825, "d_real_loss": 3.609999895095825, "d_fake_loss": 0.809999942779541}, {"real_logits": -0.800000011920929, "fake_logits": -0.800000011920929, "g_loss": 3.239999771118164, "d_real_loss": 3.239999771118164, "d_fake_loss": 0.64000004529953}, {"real_logits": -0.699999988079071, "fake_logits": -0.699999988079071, "g_loss": 2.890000104904175, "d_real_loss": 2.890000104904175, "d_fake_loss": 0.4899999797344208}, {"real_logits": -0.6000000238418579, "fake_logits": -0.6000000238418579, "g_loss": 2.56000018119812, "d_real_loss": 2.56000018119812, "d_fake_loss": 0.36000001430511475}, {"real_logits": -0.5, "fake_logits": -0.5, "g_loss": 2.25, "d_real_loss": 2.25, "d_fake_loss": 0.25}, {"real_logits": -0.4000000059604645, "fake_logits": -0.4000000059604645, "g_loss": 1.959999918937683, "d_real_loss": 1.959999918937683, "d_fake_loss": 0.1600000113248825}, {"real_logits": -0.30000001192092896, "fake_logits": -0.30000001192092896, "g_loss": 1.6899998188018799, "d_real_loss": 1.6899998188018799, "d_fake_loss": 0.09000000357627869}, {"real_logits": -0.20000000298023224, "fake_logits": -0.20000000298023224, "g_loss": 1.440000057220459, "d_real_loss": 1.440000057220459, "d_fake_loss": 0.04000000283122063}, {"real_logits": -0.10000000149011612, "fake_logits": -0.10000000149011612, "g_loss": 1.2100000381469727, "d_real_loss": 1.2100000381469727, "d_fake_loss": 0.010000000707805157}, {"real_logits": 0.0, "fake_logits": 0.0, "g_loss": 1.0, "d_real_loss": 1.0, "d_fake_loss": 0.0}, {"real_logits": 0.10000000149011612, "fake_logits": 0.10000000149011612, "g_loss": 0.809999942779541, "d_real_loss": 0.809999942779541, "d_fake_loss": 0.010000000707805157}, {"real_logits": 0.20000000298023224, "fake_logits": 0.20000000298023224, "g_loss": 0.64000004529953, "d_real_loss": 0.64000004529953, "d_fake_loss": 0.04000000283122063}, {"real_logits": 0.30000001192092896, "fake_logits": 0.30000001192092896, "g_loss": 0.4899999797344208, "d_real_loss": 0.4899999797344208, "d_fake_loss": 0.09000000357627869}, {"real_logits": 0.4000000059604645, "fake_logits": 0.4000000059604645, "g_loss": 0.36000001430511475, "d_real_loss": 0.36000001430511475, "d_fake_loss": 0.1600000113248825}, {"real_logits": 0.5, "fake_logits": 0.5, "g_loss": 0.25, "d_real_loss": 0.25, "d_fake_loss": 0.25}, {"real_logits": 0.6000000238418579, "fake_logits": 0.6000000238418579, "g_loss": 0.15999998152256012, "d_real_loss": 0.15999998152256012, "d_fake_loss": 0.36000001430511475}, {"real_logits": 0.699999988079071, "fake_logits": 0.699999988079071, "g_loss": 0.09000000357627869, "d_real_loss": 0.09000000357627869, "d_fake_loss": 0.4899999797344208}, {"real_logits": 0.800000011920929, "fake_logits": 0.800000011920929, "g_loss": 0.03999999538064003, "d_real_loss": 0.03999999538064003, "d_fake_loss": 0.64000004529953}, {"real_logits": 0.8999999761581421, "fake_logits": 0.8999999761581421, "g_loss": 0.010000004433095455, "d_real_loss": 0.010000004433095455, "d_fake_loss": 0.809999942779541}, {"real_logits": 1.0, "fake_logits": 1.0, "g_loss": 0.0, "d_real_loss": 0.0, "d_fake_loss": 1.0}, {"real_logits": 1.100000023841858, "fake_logits": 1.100000023841858, "g_loss": 0.010000004433095455, "d_real_loss": 0.010000004433095455, "d_fake_loss": 1.2100000381469727}, {"real_logits": 1.2000000476837158, "fake_logits": 1.2000000476837158, "g_loss": 0.04000001773238182, "d_real_loss": 0.04000001773238182, "d_fake_loss": 1.440000057220459}, {"real_logits": 1.2999999523162842, "fake_logits": 1.2999999523162842, "g_loss": 0.0899999737739563, "d_real_loss": 0.0899999737739563, "d_fake_loss": 1.6899998188018799}, {"real_logits": 1.399999976158142, "fake_logits": 1.399999976158142, "g_loss": 0.15999998152256012, "d_real_loss": 0.15999998152256012, "d_fake_loss": 1.959999918937683}, {"real_logits": 1.5, "fake_logits": 1.5, "g_loss": 0.25, "d_real_loss": 0.25, "d_fake_loss": 2.25}, {"real_logits": 1.600000023841858, "fake_logits": 1.600000023841858, "g_loss": 0.36000001430511475, "d_real_loss": 0.36000001430511475, "d_fake_loss": 2.56000018119812}, {"real_logits": 1.7000000476837158, "fake_logits": 1.7000000476837158, "g_loss": 0.49000006914138794, "d_real_loss": 0.49000006914138794, "d_fake_loss": 2.890000104904175}, {"real_logits": 1.7999999523162842, "fake_logits": 1.7999999523162842, "g_loss": 0.6399999260902405, "d_real_loss": 0.6399999260902405, "d_fake_loss": 3.239999771118164}, {"real_logits": 1.899999976158142, "fake_logits": 1.899999976158142, "g_loss": 0.809999942779541, "d_real_loss": 0.809999942779541, "d_fake_loss": 3.609999895095825}, {"real_logits": 2.0, "fake_logits": 2.0, "g_loss": 1.0, "d_real_loss": 1.0, "d_fake_loss": 4.0}, {"real_logits": 2.0999999046325684, "fake_logits": 2.0999999046325684, "g_loss": 1.2099997997283936, "d_real_loss": 1.2099997997283936, "d_fake_loss": 4.409999370574951}, {"real_logits": 2.200000047683716, "fake_logits": 2.200000047683716, "g_loss": 1.440000057220459, "d_real_loss": 1.440000057220459, "d_fake_loss": 4.840000152587891}, {"real_logits": 2.299999952316284, "fake_logits": 2.299999952316284, "g_loss": 1.6899998188018799, "d_real_loss": 1.6899998188018799, "d_fake_loss": 5.289999961853027}, {"real_logits": 2.4000000953674316, "fake_logits": 2.4000000953674316, "g_loss": 1.9600002765655518, "d_real_loss": 1.9600002765655518, "d_fake_loss": 5.760000228881836}, {"real_logits": 2.5, "fake_logits": 2.5, "g_loss": 2.25, "d_real_loss": 2.25, "d_fake_loss": 6.25}, {"real_logits": 2.5999999046325684, "fake_logits": 2.5999999046325684, "g_loss": 2.559999704360962, "d_real_loss": 2.559999704360962, "d_fake_loss": 6.7599992752075195}, {"real_logits": 2.700000047683716, "fake_logits": 2.700000047683716, "g_loss": 2.890000104904175, "d_real_loss": 2.890000104904175, "d_fake_loss": 7.2900004386901855}, {"real_logits": 2.799999952316284, "fake_logits": 2.799999952316284, "g_loss": 3.239999771118164, "d_real_loss": 3.239999771118164, "d_fake_loss": 7.839999675750732}, {"real_logits": 2.9000000953674316, "fake_logits": 2.9000000953674316, "g_loss": 3.6100003719329834, "d_real_loss": 3.6100003719329834, "d_fake_loss": 8.410000801086426}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="WGAN">WGAN<a class="anchor-link" href="#WGAN"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_wgan_loss_fns" class="doc_header"><code>get_wgan_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L134" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_wgan_loss_fns</code>(<strong><code>reduction</code></strong>=<em><code>'mean'</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">draw_adversarial_loss_fns</span><span class="p">(</span><span class="s2">&quot;wgan&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-7ca9557e75164daaa6015da0ee349fa2"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    const outputDiv = document.getElementById("altair-viz-7ca9557e75164daaa6015da0ee349fa2");
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "real_logits"}, "y": {"type": "quantitative", "field": "d_real_loss"}}, "title": "[D] real loss"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "d_fake_loss"}}, "title": "[D] fake loss"}], "title": "wgan"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "g_loss"}}, "title": "[G] loss"}], "data": {"name": "data-7d8759f20ce346f60e73bebe03bf28b9"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json", "datasets": {"data-7d8759f20ce346f60e73bebe03bf28b9": [{"real_logits": -3.0, "fake_logits": -3.0, "g_loss": 3.0, "d_real_loss": 3.0, "d_fake_loss": -3.0}, {"real_logits": -2.9000000953674316, "fake_logits": -2.9000000953674316, "g_loss": 2.9000000953674316, "d_real_loss": 2.9000000953674316, "d_fake_loss": -2.9000000953674316}, {"real_logits": -2.799999952316284, "fake_logits": -2.799999952316284, "g_loss": 2.799999952316284, "d_real_loss": 2.799999952316284, "d_fake_loss": -2.799999952316284}, {"real_logits": -2.700000047683716, "fake_logits": -2.700000047683716, "g_loss": 2.700000047683716, "d_real_loss": 2.700000047683716, "d_fake_loss": -2.700000047683716}, {"real_logits": -2.5999999046325684, "fake_logits": -2.5999999046325684, "g_loss": 2.5999999046325684, "d_real_loss": 2.5999999046325684, "d_fake_loss": -2.5999999046325684}, {"real_logits": -2.5, "fake_logits": -2.5, "g_loss": 2.5, "d_real_loss": 2.5, "d_fake_loss": -2.5}, {"real_logits": -2.4000000953674316, "fake_logits": -2.4000000953674316, "g_loss": 2.4000000953674316, "d_real_loss": 2.4000000953674316, "d_fake_loss": -2.4000000953674316}, {"real_logits": -2.299999952316284, "fake_logits": -2.299999952316284, "g_loss": 2.299999952316284, "d_real_loss": 2.299999952316284, "d_fake_loss": -2.299999952316284}, {"real_logits": -2.200000047683716, "fake_logits": -2.200000047683716, "g_loss": 2.200000047683716, "d_real_loss": 2.200000047683716, "d_fake_loss": -2.200000047683716}, {"real_logits": -2.0999999046325684, "fake_logits": -2.0999999046325684, "g_loss": 2.0999999046325684, "d_real_loss": 2.0999999046325684, "d_fake_loss": -2.0999999046325684}, {"real_logits": -2.0, "fake_logits": -2.0, "g_loss": 2.0, "d_real_loss": 2.0, "d_fake_loss": -2.0}, {"real_logits": -1.899999976158142, "fake_logits": -1.899999976158142, "g_loss": 1.899999976158142, "d_real_loss": 1.899999976158142, "d_fake_loss": -1.899999976158142}, {"real_logits": -1.7999999523162842, "fake_logits": -1.7999999523162842, "g_loss": 1.7999999523162842, "d_real_loss": 1.7999999523162842, "d_fake_loss": -1.7999999523162842}, {"real_logits": -1.7000000476837158, "fake_logits": -1.7000000476837158, "g_loss": 1.7000000476837158, "d_real_loss": 1.7000000476837158, "d_fake_loss": -1.7000000476837158}, {"real_logits": -1.600000023841858, "fake_logits": -1.600000023841858, "g_loss": 1.600000023841858, "d_real_loss": 1.600000023841858, "d_fake_loss": -1.600000023841858}, {"real_logits": -1.5, "fake_logits": -1.5, "g_loss": 1.5, "d_real_loss": 1.5, "d_fake_loss": -1.5}, {"real_logits": -1.399999976158142, "fake_logits": -1.399999976158142, "g_loss": 1.399999976158142, "d_real_loss": 1.399999976158142, "d_fake_loss": -1.399999976158142}, {"real_logits": -1.2999999523162842, "fake_logits": -1.2999999523162842, "g_loss": 1.2999999523162842, "d_real_loss": 1.2999999523162842, "d_fake_loss": -1.2999999523162842}, {"real_logits": -1.2000000476837158, "fake_logits": -1.2000000476837158, "g_loss": 1.2000000476837158, "d_real_loss": 1.2000000476837158, "d_fake_loss": -1.2000000476837158}, {"real_logits": -1.100000023841858, "fake_logits": -1.100000023841858, "g_loss": 1.100000023841858, "d_real_loss": 1.100000023841858, "d_fake_loss": -1.100000023841858}, {"real_logits": -1.0, "fake_logits": -1.0, "g_loss": 1.0, "d_real_loss": 1.0, "d_fake_loss": -1.0}, {"real_logits": -0.8999999761581421, "fake_logits": -0.8999999761581421, "g_loss": 0.8999999761581421, "d_real_loss": 0.8999999761581421, "d_fake_loss": -0.8999999761581421}, {"real_logits": -0.800000011920929, "fake_logits": -0.800000011920929, "g_loss": 0.800000011920929, "d_real_loss": 0.800000011920929, "d_fake_loss": -0.800000011920929}, {"real_logits": -0.699999988079071, "fake_logits": -0.699999988079071, "g_loss": 0.699999988079071, "d_real_loss": 0.699999988079071, "d_fake_loss": -0.699999988079071}, {"real_logits": -0.6000000238418579, "fake_logits": -0.6000000238418579, "g_loss": 0.6000000238418579, "d_real_loss": 0.6000000238418579, "d_fake_loss": -0.6000000238418579}, {"real_logits": -0.5, "fake_logits": -0.5, "g_loss": 0.5, "d_real_loss": 0.5, "d_fake_loss": -0.5}, {"real_logits": -0.4000000059604645, "fake_logits": -0.4000000059604645, "g_loss": 0.4000000059604645, "d_real_loss": 0.4000000059604645, "d_fake_loss": -0.4000000059604645}, {"real_logits": -0.30000001192092896, "fake_logits": -0.30000001192092896, "g_loss": 0.30000001192092896, "d_real_loss": 0.30000001192092896, "d_fake_loss": -0.30000001192092896}, {"real_logits": -0.20000000298023224, "fake_logits": -0.20000000298023224, "g_loss": 0.20000000298023224, "d_real_loss": 0.20000000298023224, "d_fake_loss": -0.20000000298023224}, {"real_logits": -0.10000000149011612, "fake_logits": -0.10000000149011612, "g_loss": 0.10000000149011612, "d_real_loss": 0.10000000149011612, "d_fake_loss": -0.10000000149011612}, {"real_logits": 0.0, "fake_logits": 0.0, "g_loss": -0.0, "d_real_loss": -0.0, "d_fake_loss": 0.0}, {"real_logits": 0.10000000149011612, "fake_logits": 0.10000000149011612, "g_loss": -0.10000000149011612, "d_real_loss": -0.10000000149011612, "d_fake_loss": 0.10000000149011612}, {"real_logits": 0.20000000298023224, "fake_logits": 0.20000000298023224, "g_loss": -0.20000000298023224, "d_real_loss": -0.20000000298023224, "d_fake_loss": 0.20000000298023224}, {"real_logits": 0.30000001192092896, "fake_logits": 0.30000001192092896, "g_loss": -0.30000001192092896, "d_real_loss": -0.30000001192092896, "d_fake_loss": 0.30000001192092896}, {"real_logits": 0.4000000059604645, "fake_logits": 0.4000000059604645, "g_loss": -0.4000000059604645, "d_real_loss": -0.4000000059604645, "d_fake_loss": 0.4000000059604645}, {"real_logits": 0.5, "fake_logits": 0.5, "g_loss": -0.5, "d_real_loss": -0.5, "d_fake_loss": 0.5}, {"real_logits": 0.6000000238418579, "fake_logits": 0.6000000238418579, "g_loss": -0.6000000238418579, "d_real_loss": -0.6000000238418579, "d_fake_loss": 0.6000000238418579}, {"real_logits": 0.699999988079071, "fake_logits": 0.699999988079071, "g_loss": -0.699999988079071, "d_real_loss": -0.699999988079071, "d_fake_loss": 0.699999988079071}, {"real_logits": 0.800000011920929, "fake_logits": 0.800000011920929, "g_loss": -0.800000011920929, "d_real_loss": -0.800000011920929, "d_fake_loss": 0.800000011920929}, {"real_logits": 0.8999999761581421, "fake_logits": 0.8999999761581421, "g_loss": -0.8999999761581421, "d_real_loss": -0.8999999761581421, "d_fake_loss": 0.8999999761581421}, {"real_logits": 1.0, "fake_logits": 1.0, "g_loss": -1.0, "d_real_loss": -1.0, "d_fake_loss": 1.0}, {"real_logits": 1.100000023841858, "fake_logits": 1.100000023841858, "g_loss": -1.100000023841858, "d_real_loss": -1.100000023841858, "d_fake_loss": 1.100000023841858}, {"real_logits": 1.2000000476837158, "fake_logits": 1.2000000476837158, "g_loss": -1.2000000476837158, "d_real_loss": -1.2000000476837158, "d_fake_loss": 1.2000000476837158}, {"real_logits": 1.2999999523162842, "fake_logits": 1.2999999523162842, "g_loss": -1.2999999523162842, "d_real_loss": -1.2999999523162842, "d_fake_loss": 1.2999999523162842}, {"real_logits": 1.399999976158142, "fake_logits": 1.399999976158142, "g_loss": -1.399999976158142, "d_real_loss": -1.399999976158142, "d_fake_loss": 1.399999976158142}, {"real_logits": 1.5, "fake_logits": 1.5, "g_loss": -1.5, "d_real_loss": -1.5, "d_fake_loss": 1.5}, {"real_logits": 1.600000023841858, "fake_logits": 1.600000023841858, "g_loss": -1.600000023841858, "d_real_loss": -1.600000023841858, "d_fake_loss": 1.600000023841858}, {"real_logits": 1.7000000476837158, "fake_logits": 1.7000000476837158, "g_loss": -1.7000000476837158, "d_real_loss": -1.7000000476837158, "d_fake_loss": 1.7000000476837158}, {"real_logits": 1.7999999523162842, "fake_logits": 1.7999999523162842, "g_loss": -1.7999999523162842, "d_real_loss": -1.7999999523162842, "d_fake_loss": 1.7999999523162842}, {"real_logits": 1.899999976158142, "fake_logits": 1.899999976158142, "g_loss": -1.899999976158142, "d_real_loss": -1.899999976158142, "d_fake_loss": 1.899999976158142}, {"real_logits": 2.0, "fake_logits": 2.0, "g_loss": -2.0, "d_real_loss": -2.0, "d_fake_loss": 2.0}, {"real_logits": 2.0999999046325684, "fake_logits": 2.0999999046325684, "g_loss": -2.0999999046325684, "d_real_loss": -2.0999999046325684, "d_fake_loss": 2.0999999046325684}, {"real_logits": 2.200000047683716, "fake_logits": 2.200000047683716, "g_loss": -2.200000047683716, "d_real_loss": -2.200000047683716, "d_fake_loss": 2.200000047683716}, {"real_logits": 2.299999952316284, "fake_logits": 2.299999952316284, "g_loss": -2.299999952316284, "d_real_loss": -2.299999952316284, "d_fake_loss": 2.299999952316284}, {"real_logits": 2.4000000953674316, "fake_logits": 2.4000000953674316, "g_loss": -2.4000000953674316, "d_real_loss": -2.4000000953674316, "d_fake_loss": 2.4000000953674316}, {"real_logits": 2.5, "fake_logits": 2.5, "g_loss": -2.5, "d_real_loss": -2.5, "d_fake_loss": 2.5}, {"real_logits": 2.5999999046325684, "fake_logits": 2.5999999046325684, "g_loss": -2.5999999046325684, "d_real_loss": -2.5999999046325684, "d_fake_loss": 2.5999999046325684}, {"real_logits": 2.700000047683716, "fake_logits": 2.700000047683716, "g_loss": -2.700000047683716, "d_real_loss": -2.700000047683716, "d_fake_loss": 2.700000047683716}, {"real_logits": 2.799999952316284, "fake_logits": 2.799999952316284, "g_loss": -2.799999952316284, "d_real_loss": -2.799999952316284, "d_fake_loss": 2.799999952316284}, {"real_logits": 2.9000000953674316, "fake_logits": 2.9000000953674316, "g_loss": -2.9000000953674316, "d_real_loss": -2.9000000953674316, "d_fake_loss": 2.9000000953674316}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Hinge-Loss-related">Hinge Loss related<a class="anchor-link" href="#Hinge-Loss-related"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_hinge_loss_fns" class="doc_header"><code>get_hinge_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L155" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_hinge_loss_fns</code>(<strong><code>version</code></strong>=<em><code>'geometric_gan'</code></em>, <strong><code>reduction</code></strong>=<em><code>'mean'</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">draw_adversarial_loss_fns</span><span class="p">(</span><span class="s2">&quot;geometric_gan&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-594ced43292d4ec19f87622153120611"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    const outputDiv = document.getElementById("altair-viz-594ced43292d4ec19f87622153120611");
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "real_logits"}, "y": {"type": "quantitative", "field": "d_real_loss"}}, "title": "[D] real loss"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "d_fake_loss"}}, "title": "[D] fake loss"}], "title": "geometric_gan"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "g_loss"}}, "title": "[G] loss"}], "data": {"name": "data-454ba76407d3af5db024511d22e5cce6"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json", "datasets": {"data-454ba76407d3af5db024511d22e5cce6": [{"real_logits": -3.0, "fake_logits": -3.0, "g_loss": 3.0, "d_real_loss": 4.0, "d_fake_loss": 0.0}, {"real_logits": -2.9000000953674316, "fake_logits": -2.9000000953674316, "g_loss": 2.9000000953674316, "d_real_loss": 3.9000000953674316, "d_fake_loss": 0.0}, {"real_logits": -2.799999952316284, "fake_logits": -2.799999952316284, "g_loss": 2.799999952316284, "d_real_loss": 3.799999952316284, "d_fake_loss": 0.0}, {"real_logits": -2.700000047683716, "fake_logits": -2.700000047683716, "g_loss": 2.700000047683716, "d_real_loss": 3.700000047683716, "d_fake_loss": 0.0}, {"real_logits": -2.5999999046325684, "fake_logits": -2.5999999046325684, "g_loss": 2.5999999046325684, "d_real_loss": 3.5999999046325684, "d_fake_loss": 0.0}, {"real_logits": -2.5, "fake_logits": -2.5, "g_loss": 2.5, "d_real_loss": 3.5, "d_fake_loss": 0.0}, {"real_logits": -2.4000000953674316, "fake_logits": -2.4000000953674316, "g_loss": 2.4000000953674316, "d_real_loss": 3.4000000953674316, "d_fake_loss": 0.0}, {"real_logits": -2.299999952316284, "fake_logits": -2.299999952316284, "g_loss": 2.299999952316284, "d_real_loss": 3.299999952316284, "d_fake_loss": 0.0}, {"real_logits": -2.200000047683716, "fake_logits": -2.200000047683716, "g_loss": 2.200000047683716, "d_real_loss": 3.200000047683716, "d_fake_loss": 0.0}, {"real_logits": -2.0999999046325684, "fake_logits": -2.0999999046325684, "g_loss": 2.0999999046325684, "d_real_loss": 3.0999999046325684, "d_fake_loss": 0.0}, {"real_logits": -2.0, "fake_logits": -2.0, "g_loss": 2.0, "d_real_loss": 3.0, "d_fake_loss": 0.0}, {"real_logits": -1.899999976158142, "fake_logits": -1.899999976158142, "g_loss": 1.899999976158142, "d_real_loss": 2.9000000953674316, "d_fake_loss": 0.0}, {"real_logits": -1.7999999523162842, "fake_logits": -1.7999999523162842, "g_loss": 1.7999999523162842, "d_real_loss": 2.799999952316284, "d_fake_loss": 0.0}, {"real_logits": -1.7000000476837158, "fake_logits": -1.7000000476837158, "g_loss": 1.7000000476837158, "d_real_loss": 2.700000047683716, "d_fake_loss": 0.0}, {"real_logits": -1.600000023841858, "fake_logits": -1.600000023841858, "g_loss": 1.600000023841858, "d_real_loss": 2.5999999046325684, "d_fake_loss": 0.0}, {"real_logits": -1.5, "fake_logits": -1.5, "g_loss": 1.5, "d_real_loss": 2.5, "d_fake_loss": 0.0}, {"real_logits": -1.399999976158142, "fake_logits": -1.399999976158142, "g_loss": 1.399999976158142, "d_real_loss": 2.4000000953674316, "d_fake_loss": 0.0}, {"real_logits": -1.2999999523162842, "fake_logits": -1.2999999523162842, "g_loss": 1.2999999523162842, "d_real_loss": 2.299999952316284, "d_fake_loss": 0.0}, {"real_logits": -1.2000000476837158, "fake_logits": -1.2000000476837158, "g_loss": 1.2000000476837158, "d_real_loss": 2.200000047683716, "d_fake_loss": 0.0}, {"real_logits": -1.100000023841858, "fake_logits": -1.100000023841858, "g_loss": 1.100000023841858, "d_real_loss": 2.0999999046325684, "d_fake_loss": 0.0}, {"real_logits": -1.0, "fake_logits": -1.0, "g_loss": 1.0, "d_real_loss": 2.0, "d_fake_loss": 0.0}, {"real_logits": -0.8999999761581421, "fake_logits": -0.8999999761581421, "g_loss": 0.8999999761581421, "d_real_loss": 1.899999976158142, "d_fake_loss": 0.10000002384185791}, {"real_logits": -0.800000011920929, "fake_logits": -0.800000011920929, "g_loss": 0.800000011920929, "d_real_loss": 1.7999999523162842, "d_fake_loss": 0.19999998807907104}, {"real_logits": -0.699999988079071, "fake_logits": -0.699999988079071, "g_loss": 0.699999988079071, "d_real_loss": 1.7000000476837158, "d_fake_loss": 0.30000001192092896}, {"real_logits": -0.6000000238418579, "fake_logits": -0.6000000238418579, "g_loss": 0.6000000238418579, "d_real_loss": 1.600000023841858, "d_fake_loss": 0.3999999761581421}, {"real_logits": -0.5, "fake_logits": -0.5, "g_loss": 0.5, "d_real_loss": 1.5, "d_fake_loss": 0.5}, {"real_logits": -0.4000000059604645, "fake_logits": -0.4000000059604645, "g_loss": 0.4000000059604645, "d_real_loss": 1.399999976158142, "d_fake_loss": 0.6000000238418579}, {"real_logits": -0.30000001192092896, "fake_logits": -0.30000001192092896, "g_loss": 0.30000001192092896, "d_real_loss": 1.2999999523162842, "d_fake_loss": 0.699999988079071}, {"real_logits": -0.20000000298023224, "fake_logits": -0.20000000298023224, "g_loss": 0.20000000298023224, "d_real_loss": 1.2000000476837158, "d_fake_loss": 0.800000011920929}, {"real_logits": -0.10000000149011612, "fake_logits": -0.10000000149011612, "g_loss": 0.10000000149011612, "d_real_loss": 1.100000023841858, "d_fake_loss": 0.8999999761581421}, {"real_logits": 0.0, "fake_logits": 0.0, "g_loss": -0.0, "d_real_loss": 1.0, "d_fake_loss": 1.0}, {"real_logits": 0.10000000149011612, "fake_logits": 0.10000000149011612, "g_loss": -0.10000000149011612, "d_real_loss": 0.8999999761581421, "d_fake_loss": 1.100000023841858}, {"real_logits": 0.20000000298023224, "fake_logits": 0.20000000298023224, "g_loss": -0.20000000298023224, "d_real_loss": 0.800000011920929, "d_fake_loss": 1.2000000476837158}, {"real_logits": 0.30000001192092896, "fake_logits": 0.30000001192092896, "g_loss": -0.30000001192092896, "d_real_loss": 0.699999988079071, "d_fake_loss": 1.2999999523162842}, {"real_logits": 0.4000000059604645, "fake_logits": 0.4000000059604645, "g_loss": -0.4000000059604645, "d_real_loss": 0.6000000238418579, "d_fake_loss": 1.399999976158142}, {"real_logits": 0.5, "fake_logits": 0.5, "g_loss": -0.5, "d_real_loss": 0.5, "d_fake_loss": 1.5}, {"real_logits": 0.6000000238418579, "fake_logits": 0.6000000238418579, "g_loss": -0.6000000238418579, "d_real_loss": 0.3999999761581421, "d_fake_loss": 1.600000023841858}, {"real_logits": 0.699999988079071, "fake_logits": 0.699999988079071, "g_loss": -0.699999988079071, "d_real_loss": 0.30000001192092896, "d_fake_loss": 1.7000000476837158}, {"real_logits": 0.800000011920929, "fake_logits": 0.800000011920929, "g_loss": -0.800000011920929, "d_real_loss": 0.19999998807907104, "d_fake_loss": 1.7999999523162842}, {"real_logits": 0.8999999761581421, "fake_logits": 0.8999999761581421, "g_loss": -0.8999999761581421, "d_real_loss": 0.10000002384185791, "d_fake_loss": 1.899999976158142}, {"real_logits": 1.0, "fake_logits": 1.0, "g_loss": -1.0, "d_real_loss": 0.0, "d_fake_loss": 2.0}, {"real_logits": 1.100000023841858, "fake_logits": 1.100000023841858, "g_loss": -1.100000023841858, "d_real_loss": 0.0, "d_fake_loss": 2.0999999046325684}, {"real_logits": 1.2000000476837158, "fake_logits": 1.2000000476837158, "g_loss": -1.2000000476837158, "d_real_loss": 0.0, "d_fake_loss": 2.200000047683716}, {"real_logits": 1.2999999523162842, "fake_logits": 1.2999999523162842, "g_loss": -1.2999999523162842, "d_real_loss": 0.0, "d_fake_loss": 2.299999952316284}, {"real_logits": 1.399999976158142, "fake_logits": 1.399999976158142, "g_loss": -1.399999976158142, "d_real_loss": 0.0, "d_fake_loss": 2.4000000953674316}, {"real_logits": 1.5, "fake_logits": 1.5, "g_loss": -1.5, "d_real_loss": 0.0, "d_fake_loss": 2.5}, {"real_logits": 1.600000023841858, "fake_logits": 1.600000023841858, "g_loss": -1.600000023841858, "d_real_loss": 0.0, "d_fake_loss": 2.5999999046325684}, {"real_logits": 1.7000000476837158, "fake_logits": 1.7000000476837158, "g_loss": -1.7000000476837158, "d_real_loss": 0.0, "d_fake_loss": 2.700000047683716}, {"real_logits": 1.7999999523162842, "fake_logits": 1.7999999523162842, "g_loss": -1.7999999523162842, "d_real_loss": 0.0, "d_fake_loss": 2.799999952316284}, {"real_logits": 1.899999976158142, "fake_logits": 1.899999976158142, "g_loss": -1.899999976158142, "d_real_loss": 0.0, "d_fake_loss": 2.9000000953674316}, {"real_logits": 2.0, "fake_logits": 2.0, "g_loss": -2.0, "d_real_loss": 0.0, "d_fake_loss": 3.0}, {"real_logits": 2.0999999046325684, "fake_logits": 2.0999999046325684, "g_loss": -2.0999999046325684, "d_real_loss": 0.0, "d_fake_loss": 3.0999999046325684}, {"real_logits": 2.200000047683716, "fake_logits": 2.200000047683716, "g_loss": -2.200000047683716, "d_real_loss": 0.0, "d_fake_loss": 3.200000047683716}, {"real_logits": 2.299999952316284, "fake_logits": 2.299999952316284, "g_loss": -2.299999952316284, "d_real_loss": 0.0, "d_fake_loss": 3.299999952316284}, {"real_logits": 2.4000000953674316, "fake_logits": 2.4000000953674316, "g_loss": -2.4000000953674316, "d_real_loss": 0.0, "d_fake_loss": 3.4000000953674316}, {"real_logits": 2.5, "fake_logits": 2.5, "g_loss": -2.5, "d_real_loss": 0.0, "d_fake_loss": 3.5}, {"real_logits": 2.5999999046325684, "fake_logits": 2.5999999046325684, "g_loss": -2.5999999046325684, "d_real_loss": 0.0, "d_fake_loss": 3.5999999046325684}, {"real_logits": 2.700000047683716, "fake_logits": 2.700000047683716, "g_loss": -2.700000047683716, "d_real_loss": 0.0, "d_fake_loss": 3.700000047683716}, {"real_logits": 2.799999952316284, "fake_logits": 2.799999952316284, "g_loss": -2.799999952316284, "d_real_loss": 0.0, "d_fake_loss": 3.799999952316284}, {"real_logits": 2.9000000953674316, "fake_logits": 2.9000000953674316, "g_loss": -2.9000000953674316, "d_real_loss": 0.0, "d_fake_loss": 3.9000000953674316}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SNGAN">SNGAN<a class="anchor-link" href="#SNGAN"> </a></h2><p>Optimizing these objectives is equivalent tominimizing the so-called reverse KL divergence. It's a kind of hinge loss.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_sngan_loss_fns" class="doc_header"><code>get_sngan_loss_fns</code><a href="https://github.com/leemengtaiwan/learnable_ai/tree/master/learnable_ai/vision/gan/loss.py#L183" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_sngan_loss_fns</code>(<strong><code>reduction</code></strong>=<em><code>'mean'</code></em>, <strong><code>on_gpu</code></strong>=<em><code>False</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#server</span>
+<span class="n">draw_adversarial_loss_fns</span><span class="p">(</span><span class="s2">&quot;sngan&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-1168ae24be2b4241a3557ec9d21e1866"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    const outputDiv = document.getElementById("altair-viz-1168ae24be2b4241a3557ec9d21e1866");
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "real_logits"}, "y": {"type": "quantitative", "field": "d_real_loss"}}, "title": "[D] real loss"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "d_fake_loss"}}, "title": "[D] fake loss"}], "title": "sngan"}, {"mark": "line", "encoding": {"x": {"type": "quantitative", "field": "fake_logits"}, "y": {"type": "quantitative", "field": "g_loss"}}, "title": "[G] loss"}], "data": {"name": "data-f20e704a0616ec88e868126510271f8c"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json", "datasets": {"data-f20e704a0616ec88e868126510271f8c": [{"real_logits": -3.0, "fake_logits": -3.0, "g_loss": 3.0, "d_real_loss": -4.0, "d_fake_loss": 0.0}, {"real_logits": -2.9000000953674316, "fake_logits": -2.9000000953674316, "g_loss": 2.9000000953674316, "d_real_loss": -3.9000000953674316, "d_fake_loss": 0.0}, {"real_logits": -2.799999952316284, "fake_logits": -2.799999952316284, "g_loss": 2.799999952316284, "d_real_loss": -3.799999952316284, "d_fake_loss": 0.0}, {"real_logits": -2.700000047683716, "fake_logits": -2.700000047683716, "g_loss": 2.700000047683716, "d_real_loss": -3.700000047683716, "d_fake_loss": 0.0}, {"real_logits": -2.5999999046325684, "fake_logits": -2.5999999046325684, "g_loss": 2.5999999046325684, "d_real_loss": -3.5999999046325684, "d_fake_loss": 0.0}, {"real_logits": -2.5, "fake_logits": -2.5, "g_loss": 2.5, "d_real_loss": -3.5, "d_fake_loss": 0.0}, {"real_logits": -2.4000000953674316, "fake_logits": -2.4000000953674316, "g_loss": 2.4000000953674316, "d_real_loss": -3.4000000953674316, "d_fake_loss": 0.0}, {"real_logits": -2.299999952316284, "fake_logits": -2.299999952316284, "g_loss": 2.299999952316284, "d_real_loss": -3.299999952316284, "d_fake_loss": 0.0}, {"real_logits": -2.200000047683716, "fake_logits": -2.200000047683716, "g_loss": 2.200000047683716, "d_real_loss": -3.200000047683716, "d_fake_loss": 0.0}, {"real_logits": -2.0999999046325684, "fake_logits": -2.0999999046325684, "g_loss": 2.0999999046325684, "d_real_loss": -3.0999999046325684, "d_fake_loss": 0.0}, {"real_logits": -2.0, "fake_logits": -2.0, "g_loss": 2.0, "d_real_loss": -3.0, "d_fake_loss": 0.0}, {"real_logits": -1.899999976158142, "fake_logits": -1.899999976158142, "g_loss": 1.899999976158142, "d_real_loss": -2.9000000953674316, "d_fake_loss": 0.0}, {"real_logits": -1.7999999523162842, "fake_logits": -1.7999999523162842, "g_loss": 1.7999999523162842, "d_real_loss": -2.799999952316284, "d_fake_loss": 0.0}, {"real_logits": -1.7000000476837158, "fake_logits": -1.7000000476837158, "g_loss": 1.7000000476837158, "d_real_loss": -2.700000047683716, "d_fake_loss": 0.0}, {"real_logits": -1.600000023841858, "fake_logits": -1.600000023841858, "g_loss": 1.600000023841858, "d_real_loss": -2.5999999046325684, "d_fake_loss": 0.0}, {"real_logits": -1.5, "fake_logits": -1.5, "g_loss": 1.5, "d_real_loss": -2.5, "d_fake_loss": 0.0}, {"real_logits": -1.399999976158142, "fake_logits": -1.399999976158142, "g_loss": 1.399999976158142, "d_real_loss": -2.4000000953674316, "d_fake_loss": 0.0}, {"real_logits": -1.2999999523162842, "fake_logits": -1.2999999523162842, "g_loss": 1.2999999523162842, "d_real_loss": -2.299999952316284, "d_fake_loss": 0.0}, {"real_logits": -1.2000000476837158, "fake_logits": -1.2000000476837158, "g_loss": 1.2000000476837158, "d_real_loss": -2.200000047683716, "d_fake_loss": 0.0}, {"real_logits": -1.100000023841858, "fake_logits": -1.100000023841858, "g_loss": 1.100000023841858, "d_real_loss": -2.0999999046325684, "d_fake_loss": 0.0}, {"real_logits": -1.0, "fake_logits": -1.0, "g_loss": 1.0, "d_real_loss": -2.0, "d_fake_loss": 0.0}, {"real_logits": -0.8999999761581421, "fake_logits": -0.8999999761581421, "g_loss": 0.8999999761581421, "d_real_loss": -1.899999976158142, "d_fake_loss": -0.10000002384185791}, {"real_logits": -0.800000011920929, "fake_logits": -0.800000011920929, "g_loss": 0.800000011920929, "d_real_loss": -1.7999999523162842, "d_fake_loss": -0.19999998807907104}, {"real_logits": -0.699999988079071, "fake_logits": -0.699999988079071, "g_loss": 0.699999988079071, "d_real_loss": -1.7000000476837158, "d_fake_loss": -0.30000001192092896}, {"real_logits": -0.6000000238418579, "fake_logits": -0.6000000238418579, "g_loss": 0.6000000238418579, "d_real_loss": -1.600000023841858, "d_fake_loss": -0.3999999761581421}, {"real_logits": -0.5, "fake_logits": -0.5, "g_loss": 0.5, "d_real_loss": -1.5, "d_fake_loss": -0.5}, {"real_logits": -0.4000000059604645, "fake_logits": -0.4000000059604645, "g_loss": 0.4000000059604645, "d_real_loss": -1.399999976158142, "d_fake_loss": -0.6000000238418579}, {"real_logits": -0.30000001192092896, "fake_logits": -0.30000001192092896, "g_loss": 0.30000001192092896, "d_real_loss": -1.2999999523162842, "d_fake_loss": -0.699999988079071}, {"real_logits": -0.20000000298023224, "fake_logits": -0.20000000298023224, "g_loss": 0.20000000298023224, "d_real_loss": -1.2000000476837158, "d_fake_loss": -0.800000011920929}, {"real_logits": -0.10000000149011612, "fake_logits": -0.10000000149011612, "g_loss": 0.10000000149011612, "d_real_loss": -1.100000023841858, "d_fake_loss": -0.8999999761581421}, {"real_logits": 0.0, "fake_logits": 0.0, "g_loss": -0.0, "d_real_loss": -1.0, "d_fake_loss": -1.0}, {"real_logits": 0.10000000149011612, "fake_logits": 0.10000000149011612, "g_loss": -0.10000000149011612, "d_real_loss": -0.8999999761581421, "d_fake_loss": -1.100000023841858}, {"real_logits": 0.20000000298023224, "fake_logits": 0.20000000298023224, "g_loss": -0.20000000298023224, "d_real_loss": -0.800000011920929, "d_fake_loss": -1.2000000476837158}, {"real_logits": 0.30000001192092896, "fake_logits": 0.30000001192092896, "g_loss": -0.30000001192092896, "d_real_loss": -0.699999988079071, "d_fake_loss": -1.2999999523162842}, {"real_logits": 0.4000000059604645, "fake_logits": 0.4000000059604645, "g_loss": -0.4000000059604645, "d_real_loss": -0.6000000238418579, "d_fake_loss": -1.399999976158142}, {"real_logits": 0.5, "fake_logits": 0.5, "g_loss": -0.5, "d_real_loss": -0.5, "d_fake_loss": -1.5}, {"real_logits": 0.6000000238418579, "fake_logits": 0.6000000238418579, "g_loss": -0.6000000238418579, "d_real_loss": -0.3999999761581421, "d_fake_loss": -1.600000023841858}, {"real_logits": 0.699999988079071, "fake_logits": 0.699999988079071, "g_loss": -0.699999988079071, "d_real_loss": -0.30000001192092896, "d_fake_loss": -1.7000000476837158}, {"real_logits": 0.800000011920929, "fake_logits": 0.800000011920929, "g_loss": -0.800000011920929, "d_real_loss": -0.19999998807907104, "d_fake_loss": -1.7999999523162842}, {"real_logits": 0.8999999761581421, "fake_logits": 0.8999999761581421, "g_loss": -0.8999999761581421, "d_real_loss": -0.10000002384185791, "d_fake_loss": -1.899999976158142}, {"real_logits": 1.0, "fake_logits": 1.0, "g_loss": -1.0, "d_real_loss": 0.0, "d_fake_loss": -2.0}, {"real_logits": 1.100000023841858, "fake_logits": 1.100000023841858, "g_loss": -1.100000023841858, "d_real_loss": 0.0, "d_fake_loss": -2.0999999046325684}, {"real_logits": 1.2000000476837158, "fake_logits": 1.2000000476837158, "g_loss": -1.2000000476837158, "d_real_loss": 0.0, "d_fake_loss": -2.200000047683716}, {"real_logits": 1.2999999523162842, "fake_logits": 1.2999999523162842, "g_loss": -1.2999999523162842, "d_real_loss": 0.0, "d_fake_loss": -2.299999952316284}, {"real_logits": 1.399999976158142, "fake_logits": 1.399999976158142, "g_loss": -1.399999976158142, "d_real_loss": 0.0, "d_fake_loss": -2.4000000953674316}, {"real_logits": 1.5, "fake_logits": 1.5, "g_loss": -1.5, "d_real_loss": 0.0, "d_fake_loss": -2.5}, {"real_logits": 1.600000023841858, "fake_logits": 1.600000023841858, "g_loss": -1.600000023841858, "d_real_loss": 0.0, "d_fake_loss": -2.5999999046325684}, {"real_logits": 1.7000000476837158, "fake_logits": 1.7000000476837158, "g_loss": -1.7000000476837158, "d_real_loss": 0.0, "d_fake_loss": -2.700000047683716}, {"real_logits": 1.7999999523162842, "fake_logits": 1.7999999523162842, "g_loss": -1.7999999523162842, "d_real_loss": 0.0, "d_fake_loss": -2.799999952316284}, {"real_logits": 1.899999976158142, "fake_logits": 1.899999976158142, "g_loss": -1.899999976158142, "d_real_loss": 0.0, "d_fake_loss": -2.9000000953674316}, {"real_logits": 2.0, "fake_logits": 2.0, "g_loss": -2.0, "d_real_loss": 0.0, "d_fake_loss": -3.0}, {"real_logits": 2.0999999046325684, "fake_logits": 2.0999999046325684, "g_loss": -2.0999999046325684, "d_real_loss": 0.0, "d_fake_loss": -3.0999999046325684}, {"real_logits": 2.200000047683716, "fake_logits": 2.200000047683716, "g_loss": -2.200000047683716, "d_real_loss": 0.0, "d_fake_loss": -3.200000047683716}, {"real_logits": 2.299999952316284, "fake_logits": 2.299999952316284, "g_loss": -2.299999952316284, "d_real_loss": 0.0, "d_fake_loss": -3.299999952316284}, {"real_logits": 2.4000000953674316, "fake_logits": 2.4000000953674316, "g_loss": -2.4000000953674316, "d_real_loss": 0.0, "d_fake_loss": -3.4000000953674316}, {"real_logits": 2.5, "fake_logits": 2.5, "g_loss": -2.5, "d_real_loss": 0.0, "d_fake_loss": -3.5}, {"real_logits": 2.5999999046325684, "fake_logits": 2.5999999046325684, "g_loss": -2.5999999046325684, "d_real_loss": 0.0, "d_fake_loss": -3.5999999046325684}, {"real_logits": 2.700000047683716, "fake_logits": 2.700000047683716, "g_loss": -2.700000047683716, "d_real_loss": 0.0, "d_fake_loss": -3.700000047683716}, {"real_logits": 2.799999952316284, "fake_logits": 2.799999952316284, "g_loss": -2.799999952316284, "d_real_loss": 0.0, "d_fake_loss": -3.799999952316284}, {"real_logits": 2.9000000953674316, "fake_logits": 2.9000000953674316, "g_loss": -2.9000000953674316, "d_real_loss": 0.0, "d_fake_loss": -3.9000000953674316}]}}, {"mode": "vega-lite"});
+</script>
 </div>
 
 </div>

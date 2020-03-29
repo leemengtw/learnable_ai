@@ -50,28 +50,18 @@ pip install -r requirements.txt
 
 conda install pytorch torchvision <span class="nv">cudatoolkit</span><span class="o">=</span><span class="m">10</span>.1 -c pytorch
 conda install -c conda-forge opencv
-pip install easydict
-pip install more-itertools
 </pre></div>
 <p>安裝 Jupyter Lab：</p>
 <div class="highlight"><pre><span></span>conda install -c conda-forge jupyterlab -y
-pip install ipywidgets
-</pre></div>
-<p>安裝 <a href="https://github.com/rapidsai/jupyterlab-nvdashboard">JupyterLab GPU Dashboards</a>：</p>
-<div class="highlight"><pre><span></span>pip install jupyterlab-nvdashboard
-jupyter labextension install jupyterlab-nvdashboard
 </pre></div>
 <p>設置 <a href="https://github.com/fastai/nbdev">nbdev</a> 環境並以 editable 的方式安裝此 package：</p>
 <div class="highlight"><pre><span></span>nbdev_install_git_hooks
 nbdev_build_lib
 pip install -e <span class="s2">&quot;.[dev]&quot;</span>
 </pre></div>
-<p>建立環境變數或是文件：</p>
-<div class="highlight"><pre><span></span>torch .env
-<span class="nb">export</span> <span class="nv">DATA_ROOT</span><span class="o">=</span>data
-</pre></div>
-<p>更新文件：</p>
-<div class="highlight"><pre><span></span>nbdev_build_docs
+<p>建立環境變數文件：</p>
+<div class="highlight"><pre><span></span>touch .env
+<span class="nb">echo</span> <span class="s1">&#39;export DATA_ROOT=data&#39;</span> &gt;&gt; .env
 </pre></div>
 
 </div>

@@ -85,7 +85,193 @@ description: "description"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Commands">Commands<a class="anchor-link" href="#Commands"> </a></h2>
+<h2 id="Ideas">Ideas<a class="anchor-link" href="#Ideas"> </a></h2><ul>
+<li>model architecture<ul>
+<li>dcgan</li>
+<li>resnet</li>
+</ul>
+</li>
+<li>SAGAN:<ul>
+<li>Spectural norm</li>
+<li>WGAN-GP</li>
+<li>TTUR: 調整 D 以及 G 的 LR Or D 多訓練幾次</li>
+</ul>
+</li>
+<li>使用WGAN 系列、SNGAN、加 dropout layer、對 input image 加上 noise。</li>
+<li>upsample+conv2d 组合代替 transposed_conv2d，可以减少 checkerboard 的产生</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Weight-init">Weight init<a class="anchor-link" href="#Weight-init"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weights_init</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">classname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">if</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Conv&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;BatchNorm&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Optim:-Adam-or-RMSprop">Optim: Adam or RMSprop<a class="anchor-link" href="#Optim:-Adam-or-RMSprop"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">optimizer_G</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(</span><span class="n">generator</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="n">lr</span><span class="p">)</span>
+<span class="n">optimizer_D</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(</span><span class="n">discriminator</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="n">lr</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Discriminator-Weight-clippling">Discriminator Weight clippling<a class="anchor-link" href="#Discriminator-Weight-clippling"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--clip_value&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;lower and upper clip value for disc. weights&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">discriminator</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="o">-</span><span class="n">opt</span><span class="o">.</span><span class="n">clip_value</span><span class="p">,</span> <span class="n">opt</span><span class="o">.</span><span class="n">clip_value</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#35347;&#32244;&#25351;&#20196;">&#35347;&#32244;&#25351;&#20196;<a class="anchor-link" href="#&#35347;&#32244;&#25351;&#20196;"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="MNIST">MNIST<a class="anchor-link" href="#MNIST"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">#gan</span>
+python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset mnist<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">32</span><span class="se">\</span>
+    --channels <span class="m">1</span><span class="se">\</span>
+    --batch_size <span class="m">256</span>
+
+<span class="c1"># wgan</span>
+python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset mnist<span class="se">\</span>
+    --adversarial_loss_type wgan<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">32</span><span class="se">\</span>
+    --channels <span class="m">1</span><span class="se">\</span>
+    --batch_size <span class="m">256</span>
+
+<span class="c1"># wgan + weight clip</span>
+python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset mnist<span class="se">\</span>
+    --adversarial_loss_type wgan<span class="se">\</span>
+    --discriminator_weight_clip_value <span class="m">0</span>.01<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">32</span><span class="se">\</span>
+    --channels <span class="m">1</span><span class="se">\</span>
+    --batch_size <span class="m">256</span>
+
+<span class="c1"># sngan: spectral normalization in d</span>
+python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset mnist<span class="se">\</span>
+    --adversarial_loss_type wgan<span class="se">\</span>
+    --discriminator_spectral_norm True<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">32</span><span class="se">\</span>
+    --channels <span class="m">1</span><span class="se">\</span>
+    --batch_size <span class="m">256</span>
+
+<span class="c1"># hinge</span>
+python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset mnist<span class="se">\</span>
+    --adversarial_loss_type wgan<span class="se">\</span>
+    --discriminator_spectral_norm True<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">32</span><span class="se">\</span>
+    --channels <span class="m">1</span><span class="se">\</span>
+    --batch_size <span class="m">256</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Crykpo">Crykpo<a class="anchor-link" href="#Crykpo"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset crypko<span class="se">\</span>
+    --adversarial_loss_type wgan<span class="se">\</span>
+    --discriminator_weight_clip_value <span class="m">0</span>.01<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">64</span><span class="se">\</span>
+    --channels <span class="m">3</span><span class="se">\</span>
+    --batch_size <span class="m">512</span>
+
+<span class="c1"># sngan</span>
+python applications/image_synthesis/train_gan.py<span class="se">\</span>
+    --dataset crypko<span class="se">\</span>
+    --adversarial_loss_type hinge_v1<span class="se">\</span>
+    --discriminator_spectral_norm True<span class="se">\</span>
+    --latent_dim <span class="m">128</span><span class="se">\</span>
+    --dim <span class="m">64</span><span class="se">\</span>
+    --channels <span class="m">3</span><span class="se">\</span>
+    --batch_size <span class="m">512</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Stickers">Stickers<a class="anchor-link" href="#Stickers"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># wgan + weight clip</span>
+<span class="n">python</span> <span class="n">applications</span><span class="o">/</span><span class="n">image_synthesis</span><span class="o">/</span><span class="n">train_gan</span><span class="o">.</span><span class="n">py</span>\
+    <span class="o">--</span><span class="n">dataset</span> <span class="n">stickers</span>\
+    <span class="o">--</span><span class="n">adversarial_loss_type</span> <span class="n">wgan</span>\
+    <span class="o">--</span><span class="n">discriminator_weight_clip_value</span> <span class="mf">0.01</span>\
+    <span class="o">--</span><span class="n">latent_dim</span> <span class="mi">128</span>\
+    <span class="o">--</span><span class="n">dim</span> <span class="mi">64</span>\
+    <span class="o">--</span><span class="n">channels</span> <span class="mi">3</span>\
+    <span class="o">--</span><span class="n">batch_size</span> <span class="mi">1024</span>
+</pre></div>
+
 </div>
 </div>
 </div>
@@ -108,7 +294,7 @@ python applications/gan/train.py stickers <span class="m">128</span> <span class
     --max_epochs <span class="m">100</span>
 
 
-python applications/gan/train.py crypko <span class="m">64</span> <span class="m">64</span> <span class="m">3</span> lsgan <span class="se">\</span>
+python applications/image_generation/train_gan.py crypko <span class="m">64</span> <span class="m">64</span> <span class="m">3</span> lsgan <span class="se">\</span>
     --batch_size <span class="m">512</span> <span class="se">\</span>
     --max_epochs <span class="m">10000</span>
 </pre></div>

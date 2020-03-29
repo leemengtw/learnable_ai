@@ -30,23 +30,14 @@ pip install -r requirements.txt
 
 conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 conda install -c conda-forge opencv
-pip install easydict
-pip install more-itertools
 ```
 
 安裝 Jupyter Lab：
 
 ```bash
 conda install -c conda-forge jupyterlab -y
-pip install ipywidgets
 ```
 
-安裝 [JupyterLab GPU Dashboards](https://github.com/rapidsai/jupyterlab-nvdashboard)：
-
-```bash
-pip install jupyterlab-nvdashboard
-jupyter labextension install jupyterlab-nvdashboard
-```
 
 設置 [nbdev](https://github.com/fastai/nbdev) 環境並以 editable 的方式安裝此 package：
 
@@ -56,16 +47,9 @@ nbdev_build_lib
 pip install -e ".[dev]"
 ```
 
-建立環境變數或是文件：
+建立環境變數文件：
 
 ```bash
-torch .env
-export DATA_ROOT=data
+touch .env
+echo 'export DATA_ROOT=data' >> .env
 ```
-
-更新文件：
-
-```bash
-nbdev_build_docs
-```
-
