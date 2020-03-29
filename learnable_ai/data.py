@@ -136,7 +136,7 @@ class StickerDataset(Dataset):
 #             transforms.CenterCrop(self.size),
             transforms.ToTensor(),
 #             transforms.Normalize(mean=self.mean, std=self.std),
-            transforms.Normalize(mean=[0.5], std=[0.5])
+#             transforms.Normalize(mean=[0.5], std=[0.5])
         ]
         self.transform = transforms.Compose(transform)
 
