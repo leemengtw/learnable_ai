@@ -371,7 +371,11 @@ class GAN(pl.LightningModule):
 
             # TODO: gradient penality
 
-            tqdm_dict = {'d_loss': d_loss}
+            tqdm_dict = {
+                'd_loss': d_loss,
+                'd_real_loss': d_real_loss,
+                'd_fake_loss': d_fake_loss,
+            }
             output = OrderedDict({
                 'loss': d_loss,
                 'progress_bar': tqdm_dict,
