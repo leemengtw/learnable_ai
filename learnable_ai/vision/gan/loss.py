@@ -189,8 +189,8 @@ def get_sngan_loss_fns(reduction="mean", on_gpu=False, **kwargs):
         return fake_loss
 
     def d_loss_fn(real_logits, fake_logits, reduction="mean", on_gpu=False):
-        real_loss = torch.min(-1 + real_logits, zeros_like(real_logits, on_gpu))
-        fake_loss = torch.min(-1 - fake_logits, zeros_like(fake_logits, on_gpu))
+        real_loss = -torch.min(-1 + real_logits, zeros_like(real_logits, on_gpu))
+        fake_loss = -torch.min(-1 - fake_logits, zeros_like(fake_logits, on_gpu))
         if reduction == "mean":
             real_loss = real_loss.mean()
             fake_loss = fake_loss.mean()
