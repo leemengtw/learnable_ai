@@ -6,3 +6,4 @@ python-dotenv
 gdown
 more-itertools
 opencv-python
+altair
