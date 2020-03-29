@@ -39,15 +39,16 @@ index = {"logger": "vision.gan.loss.ipynb",
          "LR": "vision.gan.hparam.ipynb",
          "BETA1": "vision.gan.hparam.ipynb",
          "BETA2": "vision.gan.hparam.ipynb",
-         "draw_func": "vision.gan.loss.ipynb",
          "create_like": "vision.gan.loss.ipynb",
          "ones_like": "vision.gan.loss.ipynb",
          "zeros_like": "vision.gan.loss.ipynb",
+         "get_adversarial_loss_fns": "vision.gan.loss.ipynb",
+         "draw_adversarial_loss_fns": "vision.gan.loss.ipynb",
          "get_gan_loss_fns": "vision.gan.loss.ipynb",
          "get_lsgan_loss_fns": "vision.gan.loss.ipynb",
          "get_wgan_loss_fns": "vision.gan.loss.ipynb",
          "get_hinge_loss_fns": "vision.gan.loss.ipynb",
-         "get_adversarial_loss_fns": "vision.gan.loss.ipynb"}
+         "get_sngan_loss_fns": "vision.gan.loss.ipynb"}
 
 modules = ["core.py",
            "data.py",
