@@ -38,11 +38,12 @@ def main(args):
     model = GAN(hparams=args)
     
     adv_type = args.adversarial_loss_type
-    if args.discriminator_weight_clip_value:
+    if args.num_discriminator_updates > 1:
+        v = args.num_discriminator_updates
+        adv_type = "_".join([adv_type, f"nd{v}"])
+    elif args.discriminator_weight_clip_value:
         v = args.discriminator_weight_clip_value
         adv_type = "_".join([adv_type, f"wc{v}"])
-    elif args.discriminator_spectral_norm:
-        adv_type = "_".join([adv_type, 'spectral_norm'])
     
     experiment_name = "_".join([
         args.dataset, 
@@ -69,7 +70,7 @@ def main(args):
 #         checkpoint_callback=checkpoint_callback,
         gpus=args.gpus,
         track_grad_norm=2,
-        log_gpu_memory=True,
+        log_gpu_memory=False,
         max_epochs=args.max_epochs,
     )
     
@@ -103,7 +104,6 @@ if __name__ == '__main__':
                         help="generator type")
     parser.add_argument("--discriminator_type", type=str, default=DISCRIMINATOR_TYPE, nargs="?",
                         help="discriminator type")
-    parser.add_argument("--discriminator_spectral_norm", type=bool, default=False)
     parser.add_argument("--norm_type", type=str, default=NORM_TYPE, nargs="?",
                         help="normalization type")
     parser.add_argument("--dim_channel_multiplier", type=int, default=DIM_CHANNEL_MULTIPLIER, nargs="?",
@@ -112,17 +112,15 @@ if __name__ == '__main__':
                         help="size of kernels which are used in generator and discriminator")
     
     # loss
-    parser.add_argument("--adversarial_loss_type", type=str, default=ADVERSARIAL_LOSS_TYPE, nargs="?",
-                        choices=["gan", "lsgan", "wgan", "geometric_gan", "hinge_v2"],
+    parser.add_argument("--adversarial_loss_type", type=str, default=ADVERSARIAL_LOSS_TYPE,
+                        choices=["gan", "lsgan", "wgan", "geometric_gan", "sngan"],
                         help="adversarial loss type")
     parser.add_argument("--discriminator_weight_clip_value", type=float, default=0., 
                         help="lower and upper clip value for disc. weights")
-    parser.add_argument("--gradient_penalty_lambda", type=float, default=10., 
-                        help="weight for gradient penality")  # TODO: not using now
-    
     # training
     parser.add_argument("--batch_size", type=int, default=BATCH_SIZE, nargs="?",
                         help="size of the batches")
+    parser.add_argument("--num_discriminator_updates", type=int, default=1)
     
     # TODO: TTUR
     parser.add_argument("--lr", type=float, default=LR, nargs="?",
